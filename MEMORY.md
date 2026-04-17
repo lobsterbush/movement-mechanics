@@ -14,4 +14,8 @@ Corrections and learned facts that persist across sessions. When a mistake is co
 - `[LEARN:writing]` Never claim "monotonically" unless strictly monotonic at every point. Use "generally strengthen" or "robust across thresholds".
 
 ## Sub-study-specific learnings
-(Add as `[LEARN:A-...]`, `[LEARN:B-...]`, etc. once work begins.)
+- `[LEARN:dataverse]` Harvard Dataverse delivers ingested tabular files (`.tab`) whose MD5 differs from the stored-upload MD5 on the file record (the stored hash is of the original `.csv`/`.dta` submission). File **size** still matches exactly, so verify integrity via size + row/column counts, not only MD5. MM events files triggered this on 2026-04-17; the codebook PDF verified cleanly.
+- `[LEARN:A_US-ccc]` CCC `size_mean` missingness is 40–70% depending on year and rises over time (60% populated in 2017 → 30% in 2024). Any design that hinges on crowd-size-weighted intensity without an imputation strategy will silently select on post-2020 observability. Event counts are the safest primary treatment; size is a robustness check.
+- `[LEARN:A_US-ccc]` Strict, permissive, and no-arrest violence definitions in CCC yield almost identical aggregate violence shares (1–3% in normal years, ~6% in 2020). They separate sharply only in the Q4 tail, which is the relevant tail for the nonviolence premium. Always report all three.
+- `[LEARN:A_MM-mm]` MM `participants_category` is 42.3% NA. Treat NA as its own category in the panel — dropping NAs would eject nearly half the global protest record.
+- `[LEARN:A_MM-mm]` MM's native `protesterviolence` flag is 23.5% violent / 68.4% nonviolent / 8.1% NA. This is an order of magnitude higher than CCC's US rate, consistent with MM restricting coverage to anti-government protests. The cross-scale contrast is a feature, not a bug.

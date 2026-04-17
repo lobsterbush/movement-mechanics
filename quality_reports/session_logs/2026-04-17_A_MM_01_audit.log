@@ -1,0 +1,96 @@
+                variable     class  n_na pct_na n_unique
+1                     id   numeric     0   0.00    17145
+2                country character     0   0.00      166
+3                  ccode   numeric     0   0.00      168
+4                   year   numeric     0   0.00       31
+5                 region character     0   0.00        8
+6                protest   numeric     0   0.00        2
+7          protestnumber   numeric     0   0.00      144
+8               startday   numeric  1906  11.12       32
+9             startmonth   numeric  1906  11.12       13
+10             startyear   numeric  1906  11.12       32
+11                endday   numeric  1906  11.12       32
+12              endmonth   numeric  1906  11.12       13
+13               endyear   numeric  1906  11.12       32
+14     protesterviolence   numeric  1387   8.09        3
+15              location character  1927  11.24     4401
+16 participants_category character  7258  42.33        7
+17          participants character  1399   8.16      770
+18     protesteridentity character  2461  14.35     5785
+19      protesterdemand1 character  1907  11.12        8
+20      protesterdemand2 character 14168  82.64        8
+21      protesterdemand3 character 16762  97.77        8
+22      protesterdemand4 character 16314  95.15        8
+23        stateresponse1 character  1937  11.30        8
+24        stateresponse2 character 14257  83.16        8
+25        stateresponse3 character 16215  94.58        8
+26        stateresponse4 character 16901  98.58        7
+27        stateresponse5 character 16296  95.05        8
+28        stateresponse6 character 17129  99.91        6
+29        stateresponse7 character 16225  94.63        6
+30               sources character  1910  11.14    14123
+31                 notes character  1952  11.39    13922
+                country                    year                 protest 
+              "country"                  "year"               "protest" 
+               violence            participants 
+    "protesterviolence" "participants_category" 
+ year n_events n_countries
+ 1990      572          89
+ 1991      372          89
+ 1992      409          89
+ 1993      329          95
+ 1994      390          89
+ 1995      355          86
+ 1996      409          93
+ 1997      488          98
+ 1998      442          87
+ 1999      411          86
+ 2000      488         107
+ 2001      393          94
+ 2002      415          95
+ 2003      387          92
+ 2004      442         101
+ 2005      497         103
+ 2006      454          88
+ 2007      445          99
+ 2008      398          97
+ 2009      376          96
+ 2010      452         101
+ 2011      688         109
+ 2012      553         109
+ 2013      586         110
+ 2014      769          99
+ 2015      857          97
+ 2016      713         106
+ 2017      541          99
+ 2018      698         112
+ 2019      814         107
+ 2020       96          48
+ protesterviolence     n   pct
+                 0 11723 68.38
+                 1  4035 23.53
+                NA  1387  8.09
+ participants_category    n   pct
+               100-999 3204 18.69
+             1000-1999  483  2.82
+             2000-4999 1580  9.22
+                 50-99 2508 14.63
+            5000-10000  642  3.74
+                >10000 1470  8.57
+                  <NA> 7258 42.33
+                      demand     n   pct
+ political behavior, process 10750 57.69
+          labor wage dispute  2211 11.87
+       removal of politician  1891 10.15
+ price increases, tax policy  1414  7.59
+            police brutality  1101  5.91
+         social restrictions   684  3.67
+             land farm issue   582  3.12
+        response    n   pct
+          ignore 8286 42.83
+ crowd dispersal 4800 24.81
+         arrests 2152 11.12
+    accomodation 1538  7.95
+       shootings  936  4.84
+        killings  830  4.29
+        beatings  804  4.16

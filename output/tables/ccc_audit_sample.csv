@@ -1,0 +1,6 @@
+step,n
+Raw events (Phase 1 + 2),212004
+  + valid FIPS5,211771
+  + year in 2017-2023,171427
+  + not online-only,171039
+  + non-missing size_mean (A_US core sample),70905

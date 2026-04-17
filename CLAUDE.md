@@ -39,16 +39,20 @@ movement-mechanics/
 ---
 
 ## Sub-study Naming
-Prefix scripts, figures, tables, and manuscript subdirs with the sub-study letter so parallel work does not collide:
+Every sub-study runs on both data tracks where the outcomes support it. Prefix scripts, figures, tables, and manuscript subdirs with `<letter>_<track>` so parallel work never collides:
 
-| Prefix | Working title | Status |
-|--------|---------------|--------|
-| A | Nonviolence Premium? | Proposed |
-| B | Critical-Mass Gradient vs Cliff | Proposed |
-| C | Protest–Police Nexus | Proposed |
-| D | Counter-Mobilization Cancellation | Proposed |
-| E | Protest–Electoral Sequelae | Proposed |
-| F | Issue–Policy Alignment | Proposed |
+| Prefix | Working title | Data track | Status |
+|--------|---------------|------------|--------|
+| A_US | Nonviolence Premium (CCC, US county-year) | CCC | **Next** |
+| A_MM | Nonviolence Premium (MM, global country-year) | MM  | **Next** |
+| B_US | Critical-Mass Gradient vs Cliff | CCC | Queued |
+| B_MM | Critical-Mass Gradient vs Cliff | MM  | Queued |
+| C_US | Protest–Police Nexus | CCC | Queued |
+| D_US / D_MM | Counter-Mobilization Cancellation | both | Queued |
+| E_US / E_MM | Protest–Electoral / Executive Sequelae | both | Queued |
+| F_US / F_MM | Issue–Policy Alignment | both | Queued |
+
+A_US and A_MM are companion papers written on a shared theoretical frame. Ship them together.
 
 See `quality_reports/plans/2026-04-17_research-agenda.md` for full descriptions.
 
@@ -81,27 +85,33 @@ Palette matches `protests-spending` so figures can be used across both projects 
 ## Estimator Cheat Sheet
 | Estimator | R package | Use when |
 |-----------|-----------|----------|
-| Callaway-Sant'Anna (2021) | `did` | Staggered binary treatment, heterogeneous effects |
-| Sun-Abraham event study | `fixest::sunab()` | Quick event studies, drop-in TWFE replacement |
-| de Chaisemartin-D'Haultfœuille | `DIDmultiplegtDYN` | Continuous treatment with switchers |
-| Callaway-Goodman-Bacon-Sant'Anna (2024) | `contdid` | Dose-response curves, continuous DiD (package known buggy on dplyr ≥ 1.2; see `protests-spending/MEMORY.md`) |
-| Borusyak-Jaravel-Spiess imputation | `didimputation` | Efficient DiD under parallel trends |
-| Roth-Sant'Anna (2023) HonestDiD | `HonestDiD` | Sensitivity of DiD results to parallel-trends violations |
-| Butts (2023) spatial DiD | `bacondecomp` + custom | Neighbor spillovers |
+| Callaway-Sant'Anna (2021) | `did` | Staggered binary treatment, heterogeneous effects. Works for both tracks. |
+| Sun-Abraham event study | `fixest::sunab()` | Quick event studies, drop-in TWFE replacement. Both tracks. |
+| de Chaisemartin-D'Haultfœuille | `DIDmultiplegtDYN` | Continuous treatment with switchers. Both tracks. |
+| Callaway-Goodman-Bacon-Sant'Anna (2024) | `contdid` | Dose-response curves, continuous DiD. Package known buggy on dplyr ≥ 1.2 — see `MEMORY.md`. |
+| Borusyak-Jaravel-Spiess imputation | `didimputation` | Efficient DiD under parallel trends. Both tracks. |
+| Synthetic DiD (Arkhangelsky et al. 2021) | `synthdid` | **MM track primary** — small-N country panels with unit heterogeneity. |
+| Augmented synthetic control | `augsynth` | **MM track** — when synthetic control pre-trend fit is poor. |
+| Imai-Kim-Wang matching | `PanelMatch` | **MM track** — dynamic TSCS with many covariates. |
+| Local-projections DiD (DGJT 2023) | `lpdid` | Dynamic multipliers over 1-, 2-, 4-year horizons. Both tracks. |
+| Roth-Sant'Anna (2023) HonestDiD | `HonestDiD` | Sensitivity of DiD results to parallel-trends violations. Both tracks. |
+| Butts (2023) spatial DiD | `bacondecomp` + custom | Neighbor spillovers. CCC track only. |
 
 ---
 
 ## Commands
 ```bash
-# Run a sub-study pipeline end to end (example: sub-study A)
+# Run a sub-study pipeline end to end
 cd /path/to/movement-mechanics
-for f in R/A_*.R; do Rscript "$f"; done
+for f in R/A_US_*.R; do Rscript "$f"; done   # CCC nonviolence premium
+for f in R/A_MM_*.R; do Rscript "$f"; done   # MM nonviolence premium
 
 # Single script
-Rscript R/A_01_clean_ccc.R
+Rscript R/A_US_03_split_by_violence.R
 
 # Compile a sub-study paper
-cd paper/A_nonviolence_premium && pdflatex paper.tex && bibtex paper && pdflatex paper.tex && pdflatex paper.tex
+cd paper/A_nonviolence_premium_us && pdflatex paper.tex && bibtex paper && pdflatex paper.tex && pdflatex paper.tex
+cd paper/A_nonviolence_premium_mm && pdflatex paper.tex && bibtex paper && pdflatex paper.tex && pdflatex paper.tex
 ```
 
 ---

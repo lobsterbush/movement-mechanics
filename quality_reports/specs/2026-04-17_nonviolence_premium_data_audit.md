@@ -69,3 +69,45 @@ Seven codebook categories present, dominated by *ignore* (42.8%) and *crowd disp
 - `R/A_MM_02_build_panel.R` — MM events → country-year panel with violence share, total event count, participant-weighted intensity.
 - `R/A_US_03_merge_outcomes.R` / `R/A_MM_03_merge_outcomes.R` — join Census of Governments / MPV / Open Policing (US) and V-Dem / Polity / WDI (global).
 - `R/A_US_04_estimate.R` / `R/A_MM_04_estimate.R` — CS-DiD with violence interaction.
+
+## CCC Size Imputation — Implementation (`R/A_US_02_impute_ccc_size.R`)
+**Run:** 2026-04-17 · **Eligible events:** 171,067 (2017–2023, FIPS, non-online) · **Output:** `data/intermediate/ccc_events_imputed.rds`
+
+### Five-tier strategy
+| Tier | Rule | Events | Share |
+|------|------|-------:|------:|
+| T1 observed    | `size_mean` present | 70,923 | 41.5% |
+| T2 midpoint    | only `size_low`+`size_high` present → mean of two | 0 | 0.0% |
+| T3 range-low   | only `size_low` present → take as conservative mean | 0 | 0.0% |
+| T4 range-high  | only `size_high` present → halve (see sanity check) | 17 | 0.01% |
+| T5 model       | nothing present → log-OLS prediction | 100,127 | 58.5% |
+
+T2/T3 fire effectively never in the eligible panel: when CCC coders report a range they also report `size_mean`. The useful distinction is T1 (observed) vs T5 (needs modeling); T4 is a handful of edge cases.
+
+### Imputation model
+- Train set: 70,915 T1 events with `size_mean >= 1`.
+- Specification: `log(size_mean) ~ factor(year) + factor(state) + pd + ar + ic + ip + ca + is_blm` via `lm`.
+- **R² = 0.067.** Event-level crowd-size prediction is inherently noisy; this matches the literature. The model is informative for year/state fixed effects (BLM-heavy 2020 lifts predicted sizes; small-state fixed effects pull them down) and for the sign of violence flags, but not for granular crowd estimation. **Implication:** the imputed point estimate should be used only for aggregation to county-year totals, never for event-level inference.
+- Back-transformation: Duan smearing with σ² = 2.465 built in (prevents the well-known log-normal back-transformation bias).
+- Sanity check: T1 `mean / high` ratio = 0.948, so the T4 heuristic of `size_high / 2` is a safe under-estimate rather than an over-estimate (the true ratio is closer to 0.5 for events with high caps, but 0.95 when both fields are present and the "high" is tight).
+
+### Bounds for HonestDiD sensitivity
+- `size_lo_bound` = observed `size_mean` if present, else **10** (CCC's effective floor — coders almost never log sub-10 events).
+- `size_hi_bound` = observed `size_mean` if present, else `min(3 × model_prediction, T1_P99 = 4,845)`.
+- These define a Lee-style bounding envelope for every missing event. The ratio of the annual total under `size_hi_bound` vs `size_lo_bound` is 1.5–6.6 (see table below), which is the plausible range within which the true intensity sits given the observed missingness mechanism.
+
+### Aggregate intensity by year
+| Year | Events | Observed total | Imputed total | Lo-bound | Hi-bound | Imp/Obs | Hi/Lo |
+|-----:|-------:|---------------:|--------------:|---------:|---------:|-------:|------:|
+| 2017 | 10,852 | 7,574,972 |  8,884,584 |  7,618,372 | 11,503,607 | 1.17 | 1.51 |
+| 2018 | 21,514 | 11,457,065 | 15,202,114 | 11,552,795 | 22,687,181 | 1.33 | 1.96 |
+| 2019 | 11,415 |  3,678,728 |  5,389,272 |  3,744,468 |  8,810,361 | 1.46 | 2.35 |
+| 2020 | 28,293 |  4,465,090 |  9,176,952 |  4,620,960 | 18,579,748 | 2.06 | 4.02 |
+| 2021 | 29,177 |  1,364,652 |  4,321,760 |  1,556,792 | 10,233,977 | 3.17 | 6.57 |
+| 2022 | 37,537 |  4,817,283 |  9,651,831 |  5,060,553 | 19,318,926 | 2.00 | 3.82 |
+| 2023 | 32,279 |  9,559,546 | 12,734,070 |  9,764,836 | 19,083,079 | 1.33 | 1.95 |
+
+The imputation-to-observed ratio grows with time (1.17 in 2017 → 3.17 in 2021), which is exactly the temporal selection problem the design needs to neutralize. A treatment that uses `size_imputed` for the point estimate, reports `size_lo_bound` and `size_hi_bound` as a sensitivity range, and backs the whole thing with `n_events` as the primary intensity measure will pass credibility checks without pretending the missingness is random.
+
+### Operational decision
+Adopt the recommendation from the audit verdict: **event counts are the primary intensity** in all A_US models; `size_imputed` is the secondary dose-weighted intensity; `size_lo_bound` / `size_hi_bound` define the HonestDiD sensitivity envelope. The cleaned event file (`data/intermediate/ccc_events_imputed.rds`, 171,067 rows) is the canonical input for `R/A_US_03_build_panel.R`.

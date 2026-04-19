@@ -78,9 +78,13 @@
     border: 1px solid var(--border); border-radius: 6px;
     padding: 0.8em 1em;
     box-shadow: 0 2px 8px var(--shadow);
+    overflow-wrap: anywhere; word-break: break-word;
+    min-width: 0; max-width: 100%;
   }
   .card h3 { margin-top: 0; }
-  .card p { font-size: 0.75em; margin-bottom: 0; }
+  .card p { font-size: 0.75em; margin-bottom: 0; overflow-wrap: anywhere; }
+  .cols, .cols-3 { min-width: 0; }
+  .cols > div, .cols-3 > div { min-width: 0; max-width: 100%; }
   .stat { text-align: center; margin: 0.4em 0; }
   .stat .n {
     font-family: 'Cormorant Garamond', serif; font-size: 3em; font-weight: 600;
@@ -135,8 +139,8 @@
     <p class="label">Movement Mechanics — Paper A_US</p>
     <h1>The Nonviolence Premium</h1>
     <p class="subtitle">Nonviolent protest and local policy response in the United States, 2017–2023</p>
-    <p style="margin-top: 1.8em; font-size: 0.88em;">Charles Crabtree</p>
-    <p style="font-size: 0.66em; color: var(--text-muted);">Monash University · Korea University</p>
+    <p style="margin-top: 1.8em; font-size: 0.88em;">Charles Crabtree &amp; John B. Holbein</p>
+    <p style="font-size: 0.66em; color: var(--text-muted);">Monash University · Korea University &middot; University of Virginia</p>
     <p class="footer">slides_a_us.html</p>
   </section>
 
@@ -174,7 +178,7 @@
     <div class="cols">
       <div class="card">
         <h3>Nonviolence Premium</h3>
-        <p>$\mathbb{E}[Y(1,\mathrm{nv})-Y(0)] > \mathbb{E}[Y(1,\mathrm{v})-Y(0)]$. Nonviolent mobilisation moves local public-safety budgets further than violent mobilisation of comparable scale. This is the civil-resistance frame.</p>
+        <p>The within-county effect of a nonviolent-dominated year on local public-safety spending is <em>larger</em> than the within-county effect of a violent-dominated year of comparable scale. This is the civil-resistance frame.</p>
       </div>
       <div class="card">
         <h3>Intensity Equivalence</h3>
@@ -183,7 +187,7 @@
     </div>
     <div class="card" style="margin-top: 0.7em;">
       <h3>Violence Backlash</h3>
-      <p>$\mathbb{E}[Y(1,\mathrm{nv})-Y(0)] &lt; \mathbb{E}[Y(1,\mathrm{v})-Y(0)]$. Violent mobilisation raises public-safety salience and produces <em>larger</em> budget responses — the mechanism the Enos et al. and Collins–Margo results rely on.</p>
+      <p>The within-county effect of a violent-dominated year is <em>larger</em> than the within-county effect of a nonviolent-dominated year of comparable scale &mdash; the mechanism Enos et al. (2019) and Collins &amp; Margo (2007) rely on.</p>
     </div>
   </section>
 
@@ -193,14 +197,14 @@
     <h2>The 3.5% cliff is a between-campaign fact. It doesn't test the within-unit mechanism.</h2>
     <p>Chenoweth and Stephan's evidence classifies whole campaigns as nonviolent or violent and compares success rates across them. That is a powerful descriptive claim, but it cannot separate the tactical-character effect from the selection effect: campaigns that go violent are systematically different in country, era, state capacity, and coalition composition from campaigns that stay nonviolent.</p>
     <div class="callout">
-      <p><strong>Our question is different.</strong> Holding a county (and the year) fixed, does a nonviolent protest pulse move local fiscal outcomes differently than a violent one? That is the within-unit arm contrast that a fixed-effects DiD design identifies cleanly — and that a between-campaign comparison cannot.</p>
+      <p><strong>Our question is different.</strong> Holding a county (and the year) fixed, does a nonviolent-dominated protest year move local fiscal outcomes differently than a violent-dominated one? That is the within-unit arm contrast that a fixed-effects DiD design identifies cleanly &mdash; and that a between-campaign comparison cannot.</p>
     </div>
   </section>
 
   <!-- 6. What our design identifies -->
   <section>
     <p class="label">What Our Design Identifies</p>
-    <h2>We compare counties by the kind of pulse they received, not individual campaigns switching tactics.</h2>
+    <h2>We compare counties by the kind of high-intensity protest year they had &mdash; not individual campaigns switching tactics.</h2>
     <div class="cols">
       <div class="card">
         <h3>Chenoweth–Stephan (2011)</h3>
@@ -208,11 +212,11 @@
       </div>
       <div class="card">
         <h3>Our design</h3>
-        <p>Unit = the <em>county-year</em>. A county enters the nonviolent arm the first year its nonviolent per-capita intensity crosses the 90th percentile; the violent arm symmetrically. Never-treated counties serve as controls. Unit and year fixed effects absorb stable differences and common shocks.</p>
+        <p>Unit = the <em>county-year</em>. A county enters the nonviolent arm the first year its nonviolent per-capita protest intensity crosses the 90th percentile of the pooled positive distribution; the violent arm symmetrically. Never-treated counties serve as controls. Unit and year fixed effects absorb stable differences and common shocks.</p>
       </div>
     </div>
     <div class="callout" style="margin-top: 0.7em;">
-      <p><strong>"Within-unit" = within-county over time.</strong> We do not follow individual campaigns as they shift tactics; that would require a different identification strategy entirely. We compare the post-pulse trajectory of a nonviolent-pulse county to the trajectory of counties that never experienced a comparable pulse, and mirror that for the violent arm.</p>
+      <p><strong>"Within-unit" = within-county over time.</strong> We do not follow individual campaigns as they shift tactics; that would require a different identification strategy entirely. We compare the post-treatment trajectory of a county whose nonviolent intensity crossed the threshold to the trajectory of counties that never crossed any threshold, and mirror that comparison for the violent arm.</p>
     </div>
   </section>
 
@@ -250,10 +254,10 @@
   <!-- 10. Treatment assignment -->
   <section>
     <p class="label">Treatment Assignment</p>
-    <h2>Staggered adoption of a "nonviolent-dominated" or "violent-dominated" pulse.</h2>
-    <p>For each county, we compute per-capita nonviolent and violent intensity separately. A county enters the nonviolent arm in the first year its nonviolent per-capita intensity crosses the 90th percentile of the pooled nonzero distribution. Symmetrically for the violent arm. Counties that never cross either threshold are never-treated controls.</p>
+    <h2>Staggered adoption of a high-nonviolent-intensity or high-violent-intensity year.</h2>
+    <p>For each county, we compute per-capita nonviolent and violent protest intensity separately. A county enters the nonviolent arm in the first year its nonviolent per-capita intensity crosses the 90th percentile of the pooled positive distribution. Symmetrically for the violent arm. Counties that never cross either threshold are never-treated controls.</p>
     <div class="callout callout-warning">
-      <p><strong>Identification anchor.</strong> The ATT answers the question: did counties that crossed this pulse threshold see a different public-safety-spending trajectory than counties that did not, once county and year fixed effects absorb stable differences and common shocks?</p>
+      <p><strong>Identification anchor.</strong> The ATT answers the question: did counties that crossed this intensity threshold see a different public-safety-spending trajectory than counties that did not, once county and year fixed effects absorb stable differences and common shocks?</p>
     </div>
   </section>
 
@@ -278,7 +282,7 @@
     <p class="label">The Headline Estimand</p>
     <h2>The arm contrast, not either ATT alone.</h2>
     <div class="callout">
-      <p><strong>$\widehat\Delta = \widehat{\mathrm{ATT}}_{\mathrm{nv}} - \widehat{\mathrm{ATT}}_{\mathrm{v}}$</strong> on Census-of-Governments per-capita public-safety spending. Variance approximated by the independent-arm formula $\widehat{\mathrm{SE}}(\widehat\Delta) = \sqrt{\widehat{\mathrm{SE}}_{\mathrm{nv}}^{2} + \widehat{\mathrm{SE}}_{\mathrm{v}}^{2}}$, which is a lower bound when the treated sets overlap (reported below).</p>
+      <p><strong>&Delta; = ATT(nonviolent arm) &minus; ATT(violent arm)</strong> on Census-of-Governments per-capita public-safety spending. The standard error uses an independent-arm approximation that adds the per-arm sampling variances; this is a lower bound on the true SE when the treated sets overlap (reported below).</p>
     </div>
     <p>Reporting the <em>contrast</em> — not the single-arm ATT — is the design choice that lets us speak directly to the Nonviolence Premium. A significant positive ATT on nonviolent protests alone would not falsify Intensity Equivalence; the contrast would.</p>
   </section>
@@ -326,15 +330,15 @@
   <section>
     <p class="label">Why HonestDiD</p>
     <h2>Parallel trends is an assumption, not a fact. We test how much violation the headline can tolerate.</h2>
-    <p>Rambachan &amp; Roth (2023) turn the worst pre-period deviation into a scale parameter $\bar M$: how many times larger can a post-period violation of parallel trends be before the headline loses significance? A breakeven $\bar M$ of 1 means the estimate survives a post-period deviation exactly as large as the worst pre-period violation. A breakeven of 0 means the estimate was already insignificant before you started worrying about parallel trends.</p>
+    <p>Rambachan &amp; Roth (2023) turn the worst pre-period deviation into a scale parameter M-bar: how many times larger can a post-period violation of parallel trends be before the headline loses significance? A breakeven M-bar of 1 means the estimate survives a post-period deviation exactly as large as the worst pre-period violation. A breakeven of 0 means the estimate was already insignificant before you started worrying about parallel trends.</p>
   </section>
 
   <!-- 17. HonestDiD figure -->
   <section>
-    <p class="label">HonestDiD Sensitivity · Nonviolent Arm</p>
-    <h2>The robust 95% CI covers zero at every $\bar M \geq 0$.</h2>
+    <p class="label">HonestDiD Sensitivity &middot; Nonviolent Arm</p>
+    <h2>The robust 95% CI covers zero at every M-bar &ge; 0.</h2>
     <img src="output/figures/slides/a_us_honestdid_publicsafety-1.png" alt="HonestDiD sensitivity fan, nonviolent arm">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Breakeven $\bar M$ = 0.00. The raw nonviolent-arm ATT was already insignificant, so allowing any post-period deviation from parallel trends does no additional work. The same result for the arm contrast: breakeven 0.00.</p>
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Breakeven M-bar = 0.00. The raw nonviolent-arm ATT was already insignificant, so allowing any post-period deviation from parallel trends does no additional work. The same result for the arm contrast: breakeven 0.00.</p>
   </section>
 
   <!-- 18. Why multiverse -->
@@ -400,10 +404,10 @@
   <!-- 24. Thank you -->
   <section class="section">
     <p class="label">Thank You</p>
-    <h2 style="font-size: 1.4em; margin-top: 0.8em;">Charles Crabtree</h2>
-    <p>Senior Lecturer, School of Social Sciences, Monash University<br>K-Club Professor, University College, Korea University</p>
-    <p style="margin-top: 1.2em;"><a href="mailto:charles.crabtree@monash.edu">charles.crabtree@monash.edu</a> · <a href="https://charlescrabtree.org">charlescrabtree.org</a></p>
-    <p style="margin-top: 1em; font-size: 0.7em;"><a href="paper/A_nonviolence_premium_us/paper.pdf">Read the paper (PDF)</a> · <a href="slides_a_mm.html">A_MM companion slides</a></p>
+    <h2 style="font-size: 1.4em; margin-top: 0.8em;">Charles Crabtree &amp; John B. Holbein</h2>
+    <p>Crabtree: Senior Lecturer, School of Social Sciences, Monash University &middot; K-Club Professor, University College, Korea University<br>Holbein: Associate Professor, Frank Batten School of Leadership and Public Policy, University of Virginia</p>
+    <p style="margin-top: 1.2em;"><a href="mailto:charles.crabtree@monash.edu">charles.crabtree@monash.edu</a> &middot; <a href="https://charlescrabtree.org">charlescrabtree.org</a></p>
+    <p style="margin-top: 1em; font-size: 0.7em;"><a href="paper/A_nonviolence_premium_us/paper.pdf">Read the paper (PDF)</a> &middot; <a href="slides_a_mm.html">A_MM companion slides</a></p>
   </section>
 
 </div></div>

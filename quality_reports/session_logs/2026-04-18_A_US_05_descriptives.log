@@ -1,0 +1,8 @@
+            variable mean_ever_nv  mean_ever_v mean_never    p_nv_vs_v
+        mpv_killings 3.453586e-01 1.030075e+00        NaN 2.370457e-34
+                 pop 1.391658e+05 4.243081e+05        NaN 1.030727e-92
+     spend_education 2.199238e+04 5.980679e+04        NaN 4.261066e-05
+      spend_highways 6.833907e+03 1.618686e+04        NaN 7.001139e-28
+        spend_police 1.348753e+04 4.365679e+04        NaN 2.240246e-67
+ spend_public_safety 3.200865e+04 1.045129e+05        NaN 2.236133e-77
+       spend_welfare 1.462634e+04 5.154372e+04        NaN 1.465477e-29

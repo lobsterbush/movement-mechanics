@@ -1,0 +1,17 @@
+            outcome arm          att         se
+      v2x_polyarchy  nv -0.012151923 0.02105485
+      v2x_polyarchy   v  0.007272065 0.02238565
+         v2x_libdem  nv -0.001458277 0.02113767
+         v2x_libdem   v  0.010676545 0.01838205
+      v2x_partipdem  nv -0.002206615 0.01417935
+      v2x_partipdem   v  0.004117557 0.01411664
+            polity2  nv -0.484282647 0.73872616
+            polity2   v  0.791669316 0.66365230
+ wdi_health_pct_gdp  nv  0.424019880 0.35580333
+ wdi_health_pct_gdp   v -0.297797426 0.24896003
+            outcome    att_nv     att_v  att_diff se_diff  p_diff     sign
+      v2x_polyarchy -0.012152  0.007272 -0.019424 0.03073 0.52735 backlash
+         v2x_libdem -0.001458  0.010677 -0.012135 0.02801 0.66487 backlash
+      v2x_partipdem -0.002207  0.004118 -0.006324 0.02001 0.75194 backlash
+            polity2 -0.484283  0.791669 -1.275952 0.99305 0.19883 backlash
+ wdi_health_pct_gdp  0.424020 -0.297797  0.721817 0.43425 0.09647  premium

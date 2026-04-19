@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movement Mechanics — Crabtree</title>
+<meta name="description" content="A portfolio of causal tests of how protest movements translate into downstream political, fiscal, and electoral outcomes — Charles Crabtree.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f9f9fb;
+    --bg-card: #ffffff;
+    --text: #111118;
+    --text-secondary: #4a4a5a;
+    --text-muted: #6b6b7e;
+    --accent: #3730a3;
+    --accent-hover: #312e81;
+    --accent-subtle: rgba(55, 48, 163, 0.10);
+    --warning: #d97706;
+    --border: #e2e3e8;
+    --shadow: rgba(17, 17, 24, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 5% 5%, rgba(55, 48, 163, 0.06) 0%, transparent 35%),
+      radial-gradient(circle at 95% 95%, rgba(67, 56, 202, 0.05) 0%, transparent 40%),
+      radial-gradient(circle, rgba(55, 48, 163, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 28px 28px;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 4em 1.6em 6em; }
+  header { margin-bottom: 3em; }
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.6em;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 3.2rem;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3em;
+  }
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    margin-bottom: 1.4em;
+  }
+  .lede {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 60ch;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 2.4em;
+    margin-bottom: 0.6em;
+  }
+  p { color: var(--text-secondary); margin-bottom: 1em; max-width: 64ch; }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-subtle);
+    transition: color 0.15s, border-bottom-color 0.15s;
+  }
+  a:hover { color: var(--accent-hover); border-bottom-color: var(--accent); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1.6em;
+    margin-top: 2em;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8em 1.8em 1.6em;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .card .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.5em;
+    font-weight: 600;
+  }
+  .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+  }
+  .card .blurb { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.2em; }
+  .card .links { display: flex; gap: 1em; flex-wrap: wrap; }
+  .card .links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5em 0.9em;
+    border: 1px solid var(--accent-subtle);
+    border-radius: 4px;
+    background: var(--accent-subtle);
+    color: var(--accent);
+  }
+  .card .links a:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .stack {
+    background: var(--accent-subtle);
+    border-left: 4px solid var(--accent);
+    padding: 1.2em 1.4em;
+    margin: 2em 0;
+    border-radius: 0 6px 6px 0;
+    color: var(--text);
+  }
+  .stack strong { color: var(--accent); }
+  footer {
+    margin-top: 5em;
+    padding-top: 1.6em;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  footer a { color: var(--text-secondary); }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: var(--accent-subtle);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="label">Crabtree · Movement Mechanics</p>
+    <h1>The Nonviolence Premium</h1>
+    <p class="subtitle">A two-paper series on whether nonviolent protest moves policy more than violent protest does</p>
+    <p class="lede">
+      Two companion papers ask the same question at two scales — U.S. counties and country-years — using the same arm-contrast estimand and modern staggered difference-in-differences.
+      The combined finding: once nonviolence is treated as a within-unit treatment rather than a campaign-type description, the premium does not survive.
+    </p>
+  </header>
+
+  <h2>Two papers, one estimand</h2>
+  <div class="grid">
+
+    <article class="card">
+      <p class="tag">A_US · U.S. county-year</p>
+      <h3>The Nonviolence Premium: Local Policy Response in the United States, 2017–2023</h3>
+      <p class="blurb">
+        47,859 county-years from the Crowd Counting Consortium, mapped to Census of Governments per-capita public-safety spending. Headline arm contrast = <strong>−$10,588 per capita</strong> (SE $7,843, p = 0.18) — backlash-signed but insignificant, and identified by a 2020 cohort whose budget data is contaminated by ARPA.
+      </p>
+      <div class="links">
+        <a href="slides_a_us.html">Slides (HTML)</a>
+        <a href="paper/A_nonviolence_premium_us/paper.pdf">Paper (PDF)</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <p class="tag">A_MM · Cross-national</p>
+      <h3>The Nonviolence Premium: Evidence from 166 Countries, 1990–2020</h3>
+      <p class="blurb">
+        Mass Mobilization v5.1 protest events joined to V-Dem polyarchy, Polity V, WDI fiscal outcomes. Four estimators — Callaway–Sant'Anna, synthetic DiD, augmented synthetic control, PanelMatch — all return <strong>statistically zero</strong> contrasts. The Chenoweth–Stephan 3.5% cliff is built on only 4 violent-maximalist country-years vs 30 nonviolent ones.
+      </p>
+      <div class="links">
+        <a href="slides_a_mm.html">Slides (HTML)</a>
+        <a href="paper/A_nonviolence_premium_mm/paper.pdf">Paper (PDF)</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="stack">
+    <p><strong>Combined reading.</strong> Once nonviolence is estimated as a within-unit treatment effect rather than a campaign-type description, the Nonviolence Premium does not survive at either scale. The Intensity Equivalence null is the most parsimonious conclusion. Headline numbers are reproducible end-to-end from <code>data/raw/</code> via the numbered scripts in <code>R/</code>.</p>
+  </div>
+
+  <h2>Author</h2>
+  <p>
+    <a href="https://charlescrabtree.org"><strong>Charles Crabtree</strong></a> is Senior Lecturer in the School of Social Sciences at Monash University and K-Club Professor at University College, Korea University. Email: <a href="mailto:charles.crabtree@monash.edu">charles.crabtree@monash.edu</a>.
+  </p>
+
+  <h2>Replication</h2>
+  <p>
+    The full pipeline lives in <a href="https://github.com/lobsterbush/movement-mechanics">github.com/lobsterbush/movement-mechanics</a>. The numbered <code>R/A_US_*.R</code> and <code>R/A_MM_*.R</code> scripts run the analysis end-to-end, emitting per-step macros that the <code>paper/A_nonviolence_premium_*/paper.tex</code> files <code>\input</code>. Raw data is excluded from the repo and pulled from Harvard Dataverse via <code>R/00_download_*.R</code>.
+  </p>
+
+  <footer>
+    <p>Last updated <span id="lastmod">2026-04-19</span> · Built with reveal.js 4.6 · <a href="https://github.com/lobsterbush/movement-mechanics">Source on GitHub</a></p>
+  </footer>
+
+</div>
+<script>
+  document.getElementById('lastmod').textContent =
+    new Date(document.lastModified).toISOString().slice(0, 10);
+</script>
+</body>
+</html>

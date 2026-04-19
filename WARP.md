@@ -1,5 +1,5 @@
 # Movement Mechanics
-**Status:** Active. Research agenda scaffolded; Nonviolence Premium (A_US + A_MM) queued as the next work.
+**Status:** Active. A_US and A_MM pipelines (R/A_*_01..12) scaffolded; Nonviolence Premium companion papers (`paper/A_nonviolence_premium_us/`, `paper/A_nonviolence_premium_mm/`) in draft.
 **Description:** A portfolio of causal tests of how protest movements translate into downstream political, fiscal, and electoral outcomes, run in parallel on two complementary data sources: Crowd Counting Consortium (US county-year) and Mass Mobilization (global country-year). Each sub-study produces a US-domestic and a cross-national leg. Designed to supplement the `protests-spending` paper (Crabtree & Holbein) and a parallel rebuttal of Chenoweth & Stephan's (2011) 3.5% critical-mass claim.
 **Authors:** Charles Crabtree (Monash / Korea University); co-authors TBD per sub-study.
 **Last Updated:** 2026-04-17
@@ -43,6 +43,8 @@
 - **Chenoweth & Stephan rebuttal (separate repo, in progress)** — challenges the 3.5% cliff claim. Sub-studies prefixed `*_MM` provide a cross-national leg using Mass Mobilization event data, with frontier synthetic and DiD estimators.
 
 ## Next Steps
-- Approve the research-agenda plan in `quality_reports/plans/2026-04-17_research-agenda.md`.
-- Pull the MM v5.1 files (codebook DOI:10.7910/DVN/HTTWYL/TJJZNG; data files in the same dataset) into `data/raw/mm/` and the CCC dumps into `data/raw/ccc/`.
-- Scaffold `R/A_US_*.R` and `R/A_MM_*.R` pipelines and the two paper subdirectories.
+- Fill in the `TODO` stubs inside the scaffolded A_US_03..A_US_12 and A_MM_02..A_MM_12 scripts (outcome data pulls, real estimator calls, HonestDiD glue, multiverse runner).
+- Pull Census of Governments F33 files, Mapping Police Violence, Stanford Open Policing, V-Dem v14, Polity V, Archigos/REIGN, WDI, and QoG into `data/raw/`.
+- Run the two pipelines end-to-end, then call `R/A_US_12_paper_assets.R` and `R/A_MM_12_cs_replication_paper.R` to regenerate `paper/A_nonviolence_premium_{us,mm}/statistics.tex`.
+- Audit `paper/references.bib` against the Crossref API (>=90% DOI coverage target)
+- Compile the two papers with `pdflatex paper.tex && bibtex paper && pdflatex paper.tex && pdflatex paper.tex`.

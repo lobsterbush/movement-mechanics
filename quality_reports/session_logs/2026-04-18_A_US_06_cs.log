@@ -1,0 +1,32 @@
+             outcome arm           att           se  n
+ spend_public_safety  nv  2209.9816711 2.736166e+03 25
+ spend_public_safety   v 12797.4877072 7.350245e+03 25
+        spend_police  nv   909.9095176 1.050768e+03 25
+        spend_police   v  7055.4017547 6.554252e+03 25
+          spend_fire  nv  -490.1668563 2.688267e+02 25
+          spend_fire   v   191.9006649 2.296993e+02 25
+   spend_corrections  nv  1357.8782993 1.188524e+03 25
+   spend_corrections   v  3448.6628989 1.623622e+03 25
+      spend_highways  nv  -275.1097116 6.133463e+02 25
+      spend_highways   v  2247.5244897 1.187519e+03 25
+        spend_health  nv 10062.3246512 7.280216e+03 25
+        spend_health   v 15687.7321622 1.005457e+04 25
+       spend_welfare  nv  4392.6622726 4.185974e+03 25
+       spend_welfare   v  7612.0578685 3.545598e+03 25
+     spend_parks_rec  nv   681.4812446 2.985377e+02 25
+     spend_parks_rec   v   223.3890007 5.119880e+02 25
+     spend_education  nv -1991.9338608 1.901832e+03 25
+     spend_education   v   319.1723810 1.569531e+03 25
+        mpv_killings  nv    -0.1227044 6.156537e-02 36
+        mpv_killings   v     0.0984034 2.060649e-01 36
+             outcome     att_nv     att_v   att_diff   se_diff  p_diff     sign
+ spend_public_safety  2209.9817 1.280e+04 -1.059e+04 7.843e+03 0.17704 backlash
+        spend_police   909.9095 7.055e+03 -6.145e+03 6.638e+03 0.35454 backlash
+          spend_fire  -490.1669 1.919e+02 -6.821e+02 3.536e+02 0.05374 backlash
+   spend_corrections  1357.8783 3.449e+03 -2.091e+03 2.012e+03 0.29877 backlash
+      spend_highways  -275.1097 2.248e+03 -2.523e+03 1.337e+03 0.05911 backlash
+        spend_health 10062.3247 1.569e+04 -5.625e+03 1.241e+04 0.65043 backlash
+       spend_welfare  4392.6623 7.612e+03 -3.219e+03 5.486e+03 0.55730 backlash
+     spend_parks_rec   681.4812 2.234e+02  4.581e+02 5.927e+02 0.43956  premium
+     spend_education -1991.9339 3.192e+02 -2.311e+03 2.466e+03 0.34863 backlash
+        mpv_killings    -0.1227 9.840e-02 -2.211e-01 2.151e-01 0.30390 backlash

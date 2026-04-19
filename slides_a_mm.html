@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nonviolence Premium — Cross-National (Crabtree)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f9f9fb; --bg-secondary: #f1f2f5; --bg-card: #ffffff;
+    --bg-dark: #111118; --text: #111118; --text-secondary: #4a4a5a;
+    --text-muted: #6b6b7e; --accent: #3730a3; --accent-hover: #312e81;
+    --accent-light: #4338ca; --accent-subtle: rgba(55, 48, 163, 0.10);
+    --warning: #d97706; --warning-subtle: rgba(217, 119, 6, 0.10);
+    --border: #e2e3e8; --shadow: rgba(17, 17, 24, 0.08);
+  }
+  html, body, .reveal { background: var(--bg); color: var(--text); }
+  .reveal { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 400; }
+  .reveal .slides { text-align: left; }
+  .reveal .slides section {
+    padding: 1.6em 2.2em;
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(55, 48, 163, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(67, 56, 202, 0.04) 0%, transparent 40%),
+      radial-gradient(circle, rgba(55, 48, 163, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 28px 28px;
+  }
+  .reveal h1, .reveal h2, .reveal h3 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    letter-spacing: -0.01em; color: var(--text);
+    text-transform: none; margin-bottom: 0.4em;
+  }
+  .reveal h1 { font-size: 2.4em; line-height: 1.1; }
+  .reveal h2 { font-size: 1.6em; line-height: 1.15; }
+  .reveal h3 { font-size: 1.2em; color: var(--accent); }
+  .reveal p, .reveal li { color: var(--text-secondary); line-height: 1.55; font-size: 0.85em; }
+  .reveal strong { color: var(--text); font-weight: 700; }
+  .reveal em { color: var(--accent); font-style: italic; }
+  .reveal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-subtle); }
+  .reveal a:hover { color: var(--accent-hover); border-bottom-color: var(--accent); }
+  .label {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65em;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--accent); margin-bottom: 0.4em; font-weight: 600;
+  }
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: var(--text-muted); font-size: 1.1em; margin-top: 0.5em;
+  }
+  .callout {
+    background: var(--accent-subtle); border-left: 4px solid var(--accent);
+    padding: 1em 1.4em; margin: 1em 0; border-radius: 0 6px 6px 0;
+  }
+  .callout-warning { background: var(--warning-subtle); border-left-color: var(--warning); }
+  .callout p { margin: 0; color: var(--text); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6em; align-items: start; }
+  .card {
+    background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 1.2em 1.4em; box-shadow: 0 4px 12px var(--shadow);
+  }
+  .card h3 { margin-top: 0; }
+  .stat { text-align: center; margin: 0.6em 0; }
+  .stat .n {
+    font-family: 'Cormorant Garamond', serif; font-size: 4em; font-weight: 600;
+    color: var(--accent); line-height: 1;
+  }
+  .stat .u {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8em;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.1em; display: block; margin-top: 0.5em;
+  }
+  .reveal section.section { text-align: center; }
+  .reveal section.section h1 { font-size: 3em; margin: 0.4em 0; }
+  .reveal section.dark {
+    background: var(--bg-dark); color: var(--bg);
+    background-image:
+      radial-gradient(circle at 30% 30%, rgba(67, 56, 202, 0.18) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(55, 48, 163, 0.15) 0%, transparent 60%);
+  }
+  .reveal section.dark h1, .reveal section.dark h2 { color: #f6f6f8; }
+  .reveal section.dark p { color: #c8c8d2; }
+  .reveal section.dark .label { color: #a5a7e1; }
+  .reveal img { max-height: 500px; object-fit: contain; box-shadow: 0 4px 16px var(--shadow); border-radius: 4px; background: #fff; }
+  .reveal table { font-family: 'JetBrains Mono', monospace; font-size: 0.7em; border-collapse: collapse; margin: 0.6em 0; width: 100%; }
+  .reveal th { color: var(--accent); border-bottom: 2px solid var(--accent-subtle); padding: 0.4em 0.6em; text-align: left; }
+  .reveal td { padding: 0.35em 0.6em; border-bottom: 1px solid var(--border); }
+  .reveal td.num { text-align: right; }
+  .reveal .footer {
+    position: absolute; bottom: 1em; right: 1.4em;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55em; color: var(--text-muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .reveal .progress { color: var(--accent); }
+  .reveal .slide-number { font-family: 'JetBrains Mono', monospace; background: transparent; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+  <!-- Title -->
+  <section class="section">
+    <p class="label">Movement Mechanics — A_MM</p>
+    <h1>The Nonviolence Premium</h1>
+    <p class="subtitle">Cross-national evidence from 166 countries, 1990–2020</p>
+    <p style="margin-top: 2em; font-size: 0.95em;">Charles Crabtree</p>
+    <p style="font-size: 0.7em; color: var(--text-muted);">Monash University · Korea University</p>
+    <p class="footer">slides_a_mm.html</p>
+  </section>
+
+  <!-- Hook -->
+  <section>
+    <p class="label">The Question</p>
+    <h2>Does the nonviolence premium travel?</h2>
+    <p>Chenoweth & Stephan's 3.5%-of-population claim is built on campaign-type comparisons. We re-estimate it as a within-country treatment effect.</p>
+    <div class="callout">
+      <p>If nonviolent discipline is the tactical variable that matters, we should see it in V-Dem polyarchy whether we ask the question in U.S. counties or in country-years.</p>
+    </div>
+  </section>
+
+  <!-- Hypotheses -->
+  <section>
+    <p class="label">Three Hypotheses · Same Names as A_US</p>
+    <h2>Named, not numbered.</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>Nonviolence Premium</h3>
+        <p>Conditional on intensity, nonviolent protest produces a larger increase in V-Dem electoral democracy than violent protest.</p>
+      </div>
+      <div class="card">
+        <h3>Intensity Equivalence</h3>
+        <p>Conditional on intensity, the arm contrast is zero.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 1em;">
+      <h3>Violence Backlash</h3>
+      <p>Conditional on intensity, violent protest produces a <em>larger</em> response than nonviolent protest.</p>
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section>
+    <p class="label">Data</p>
+    <h2>Mass Mobilization v5.1 + V-Dem v14 + Polity V + WDI</h2>
+    <div class="cols">
+      <div>
+        <p class="stat"><span class="n">17K</span><span class="u">protest events 1990–2020</span></p>
+      </div>
+      <div>
+        <p class="stat"><span class="n">5,146</span><span class="u">country-years across 166 countries</span></p>
+      </div>
+    </div>
+    <p style="text-align:center; font-size: 0.8em;">Participant brackets non-empty for 57.7% of events &middot; remaining preserved as NA, not imputed.</p>
+  </section>
+
+  <!-- Time series -->
+  <section>
+    <p class="label">Mobilization Mix</p>
+    <h2>Mean nonviolent share rises gently across the panel</h2>
+    <img src="output/figures/slides/a_mm_timeseries.png" alt="Annual mean nonviolent share">
+  </section>
+
+  <!-- Choropleth -->
+  <section>
+    <p class="label">Geography</p>
+    <h2>Country-level nonviolent share, 1990–2020</h2>
+    <img src="output/figures/slides/a_mm_choropleth.png" alt="Nonviolent-share choropleth">
+  </section>
+
+  <!-- Design -->
+  <section>
+    <p class="label">Design</p>
+    <h2>Same arm-contrast estimand, four estimators</h2>
+    <div class="callout">
+      <p><strong>Δ = ATT<sub>nv</sub> − ATT<sub>v</sub></strong> on V-Dem polyarchy. Treatment per arm: first year a country crosses the 90th percentile of nonviolent (or violent) intensity.</p>
+    </div>
+    <div class="cols" style="margin-top: 1em;">
+      <div class="card"><h3>Callaway–Sant'Anna</h3><p>Primary; outcome regression to avoid the fastglm segfault on this country-year panel.</p></div>
+      <div class="card"><h3>Synthetic DiD</h3><p>Per-treated-country, donor pool = never-treated. Aggregated via cross-country IID SE.</p></div>
+    </div>
+    <div class="cols" style="margin-top: 0.6em;">
+      <div class="card"><h3>Augmented Synthetic Control</h3><p><code>multisynth</code> with ridge augmentation; conservative wild-bootstrap SE.</p></div>
+      <div class="card"><h3>PanelMatch</h3><p>Mahalanobis refinement on lagged outcomes, leads 0–4.</p></div>
+    </div>
+  </section>
+
+  <!-- Headline -->
+  <section>
+    <p class="label">Headline Estimate</p>
+    <h2>Callaway–Sant'Anna polyarchy contrast = −0.019, p = 0.527</h2>
+    <table>
+      <tr><th>Quantity</th><th class="num">Value</th></tr>
+      <tr><td>ATT<sub>nv</sub> (raw)</td><td class="num">−0.012</td></tr>
+      <tr><td>ATT<sub>v</sub> (raw)</td><td class="num">+0.007</td></tr>
+      <tr><td><strong>Δ (contrast)</strong></td><td class="num"><strong>−0.019</strong></td></tr>
+      <tr><td>SE (Δ)</td><td class="num">0.031</td></tr>
+      <tr><td>p</td><td class="num">0.527</td></tr>
+      <tr><td>Treated countries (nv / v / overlap)</td><td class="num">67 / 62 / 29</td></tr>
+    </table>
+    <p style="font-size:0.7em; color: var(--text-muted);">No 2020-style fiscal shock confound — violent arm spreads across the full 1990–2020 window.</p>
+  </section>
+
+  <!-- Robustness: four estimators -->
+  <section class="dark">
+    <p class="label">Four-Estimator Robustness</p>
+    <h2>Every robust 95% interval covers zero.</h2>
+    <table style="color: #c8c8d2;">
+      <tr><th style="color:#a5a7e1;">Estimator</th><th class="num" style="color:#a5a7e1;">ATT</th><th class="num" style="color:#a5a7e1;">SE</th></tr>
+      <tr><td>Callaway–Sant'Anna (contrast)</td><td class="num">−0.019</td><td class="num">0.031</td></tr>
+      <tr><td>Synthetic DiD (aggregate)</td><td class="num">−0.001</td><td class="num">0.012</td></tr>
+      <tr><td>Augmented Synthetic Control</td><td class="num">+0.010</td><td class="num">0.236*</td></tr>
+      <tr><td>PanelMatch (lead 4)</td><td class="num">−0.012</td><td class="num">0.008</td></tr>
+    </table>
+    <p style="font-size:0.7em; color: #a5a7e1; margin-top: 1em;">*augsynth wild-bootstrap SE is conservative without unit fixed effects.</p>
+  </section>
+
+  <!-- Synthdid figure -->
+  <section>
+    <p class="label">Synthetic DiD · 46 of 67 treated countries identified</p>
+    <h2>Per-country ATTs scatter symmetrically around zero</h2>
+    <img src="output/figures/slides/a_mm_synthdid_paths-1.png" alt="Per-country synthdid ATTs" style="max-height: 460px;">
+  </section>
+
+  <!-- C&S replication - the punchline slide -->
+  <section class="dark">
+    <p class="label">Chenoweth–Stephan Replication</p>
+    <h2>Only 4 violent-maximalist country-years exist to compare against 30 nonviolent ones.</h2>
+    <div class="cols" style="margin-top: 2em;">
+      <div>
+        <p class="stat"><span class="n">30</span><span class="u">nonviolent maximalist country-years</span></p>
+      </div>
+      <div>
+        <p class="stat"><span class="n">4</span><span class="u">violent maximalist country-years</span></p>
+      </div>
+    </div>
+    <p style="margin-top: 2em; color: #c8c8d2;">Five-year-forward polyarchy gap (nv − v) = −0.006 (SE 0.060). The 3.5% cliff is built on a sample where the violent arm barely exists.</p>
+  </section>
+
+  <!-- Multiverse -->
+  <section>
+    <p class="label">Robustness · 120-spec curve</p>
+    <h2>The contrast scatters tightly around zero</h2>
+    <img src="output/figures/slides/a_mm_multiverse-1.png" alt="MM specification curve">
+  </section>
+
+  <!-- Joint discussion -->
+  <section>
+    <p class="label">Reading A_US and A_MM Together</p>
+    <h2>The premium does not survive at either scale.</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>U.S. counties (A_US)</h3>
+        <p>Backlash-signed but insignificant; identified by a 2020 cohort whose CoG fiscal data is contaminated by ARPA.</p>
+      </div>
+      <div class="card">
+        <h3>Cross-national (A_MM)</h3>
+        <p>Clean null across four estimators. No single-year fiscal-shock confounder.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top: 1em;">
+      <p><strong>Combined reading:</strong> Intensity Equivalence is the conclusion that survives once the 2020 U.S. confounder is removed.</p>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="dark">
+    <p class="label">Bottom Line</p>
+    <h2>Once nonviolence is a within-unit treatment, the cross-national premium is statistically zero.</h2>
+    <p style="margin-top: 1.5em; color: #c8c8d2;">The Chenoweth–Stephan 3.5%-cliff is consistent with our data only because the violent maximalist arm is empirically rare. A within-country test cannot reject the null.</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="section">
+    <p class="label">Thank You</p>
+    <h2 style="font-size: 1.4em; margin-top: 1em;">Charles Crabtree</h2>
+    <p>Senior Lecturer, School of Social Sciences, Monash University<br>K-Club Professor, University College, Korea University</p>
+    <p style="margin-top: 1.5em;"><a href="mailto:charles.crabtree@monash.edu">charles.crabtree@monash.edu</a> · <a href="https://charlescrabtree.org">charlescrabtree.org</a></p>
+    <p style="margin-top: 1.2em; font-size: 0.7em;"><a href="paper/A_nonviolence_premium_mm/paper.pdf">Read the paper (PDF)</a></p>
+  </section>
+
+</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true, history: true, progress: true, slideNumber: 'c/t',
+    center: false, controls: true, transition: 'fade',
+    width: 1280, height: 720
+  });
+</script>
+</body>
+</html>

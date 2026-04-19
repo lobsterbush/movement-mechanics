@@ -1,0 +1,68 @@
+country,first_year,att,se,reason
+Albania,1993,0.043250985945748215,NA,ok
+Algeria,2019,-0.015287140661603596,NA,ok
+Angola,2004,0.07471408530642781,NA,ok
+Argentina,2015,0.006642678890018073,NA,ok
+Armenia,2018,0.32559205077050557,NA,ok
+Austria,1999,-0.03840580450703949,NA,ok
+Azerbaijan,NA,NA,NA,insufficient pre/post
+Belarus,1995,-0.31486686232106686,NA,ok
+Belgium,1993,-0.0606768265044495,NA,ok
+Benin,2010,-0.02776902322900728,NA,ok
+Bosnia,NA,NA,NA,insufficient pre/post
+Botswana,NA,NA,NA,insufficient pre/post
+Bulgaria,NA,NA,NA,insufficient pre/post
+Burkina Faso,2020,0.00829416250924423,NA,ok
+Cameroon,NA,NA,NA,insufficient pre/post
+Central African Republic,NA,NA,NA,insufficient pre/post
+Colombia,2016,-0.005954366014350691,NA,ok
+Croatia,NA,NA,NA,treated dropped by completeness
+Cyprus,NA,NA,NA,insufficient pre/post
+Czech Republic,1994,-0.059169074848307454,NA,ok
+Denmark,2009,-0.0080342471914344165,NA,ok
+Dominican Republic,2017,0.004702044285217047,NA,ok
+Ecuador,2017,0.0804734857534313,NA,ok
+El Salvador,2016,-0.026191633482526476,NA,ok
+Estonia,1993,0.17157923445779782,NA,ok
+Ethiopia,1994,-0.03044089641099494,NA,ok
+France,2010,-0.012098361207867052,NA,ok
+Germany,NA,NA,NA,insufficient pre/post
+Germany East,NA,NA,NA,insufficient pre/post
+Greece,2000,-0.04933528620979476,NA,ok
+Guatemala,2016,0.013711983342323486,NA,ok
+Hungary,NA,NA,NA,insufficient pre/post
+Italy,NA,NA,NA,insufficient pre/post
+Japan,2016,0.010475297196207066,NA,ok
+Jordan,2018,0.009437996134877513,NA,ok
+Latvia,1995,-0.01342363696722086,NA,ok
+Lebanon,2019,-0.0026204843594750567,NA,ok
+Lesotho,2007,-0.017636037601983873,NA,ok
+Luxembourg,1997,-0.055286980170621364,NA,ok
+Macedonia,NA,NA,NA,treated dropped by completeness
+Madagascar,NA,NA,NA,insufficient pre/post
+Malawi,2006,0.06321619879767718,NA,ok
+Mali,NA,NA,NA,insufficient pre/post
+Moldova,1993,-0.012511839349868293,NA,ok
+Mongolia,2019,-0.008243389011006533,NA,ok
+Morocco,2016,8.41516493099382e-4,NA,ok
+Myanmar,2017,0.01586609231400666,NA,ok
+Norway,1999,-0.032074861240146774,NA,ok
+Peru,2016,-0.046322725323016206,NA,ok
+Poland,NA,NA,NA,insufficient pre/post
+Portugal,2011,-0.016924318826641086,NA,ok
+Romania,1993,0.021249182762182628,NA,ok
+Russia,NA,NA,NA,insufficient pre/post
+Rwanda,NA,NA,NA,insufficient pre/post
+Serbia,2018,-0.025621565037619202,NA,ok
+Slovak Republic,NA,NA,NA,treated dropped by completeness
+Slovenia,2005,-0.016528525933850787,NA,ok
+South Africa,2000,0.021430274367108725,NA,ok
+Spain,1993,-0.09016622300185986,NA,ok
+Sri Lanka,2016,0.07192062540940991,NA,ok
+Sweden,NA,NA,NA,insufficient pre/post
+Taiwan,2014,0.05571553863810573,NA,ok
+Turkey,2017,0.019602753781638046,NA,ok
+USSR,NA,NA,NA,insufficient pre/post
+Ukraine,2007,-0.057079023214959855,NA,ok
+Yemen,2016,-0.04918269147702108,NA,ok
+Yugoslavia,1996,0.043461475375066234,NA,ok

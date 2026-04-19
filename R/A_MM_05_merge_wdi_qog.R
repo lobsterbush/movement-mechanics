@@ -1,0 +1,122 @@
+# =============================================================================
+# A_MM_05_merge_wdi_qog.R
+# Purpose: Attach fiscal outcomes from World Bank WDI, the Quality of
+#          Government standard dataset, and IMF WEO to the MM panel. These
+#          deliver the A_MM fiscal-responsiveness leg that mirrors A_US.
+# Outcomes:
+#   WDI:  SH.XPD.CHEX.GD.ZS  (health spending, %GDP)
+#         SE.XPD.TOTL.GD.ZS  (education spending, %GDP)
+#         SH.SOC.CONT.ZS     (social-protection coverage)
+#   QoG:  gii_gii            (Gender Inequality Index)
+#         ti_cpi             (Transparency International CPI)
+#   IMF:  GGX_NGDP           (general govt expenditure %GDP)
+# Inputs:
+#   data/intermediate/mm_polity.rds
+#   data/raw/wdi/*.csv        (TODO: wbstats::wb_data() or manual pull)
+#   data/raw/qog/qog_std_ts_jan25.csv (TODO: add pull)
+#   data/raw/imf/WEOApr2024.xls       (TODO: add pull)
+# Outputs:
+#   data/analysis/a_mm_panel.rds
+#   output/tables/mm_outcome_macros.tex
+# =============================================================================
+
+suppressPackageStartupMessages({
+  library(here); library(dplyr); library(readr); library(tidyr)
+})
+
+log_path <- here("quality_reports", "session_logs",
+                 format(Sys.Date(), "%Y-%m-%d_A_MM_05_wdi.log"))
+dir.create(dirname(log_path), showWarnings = FALSE, recursive = TRUE)
+sink(log_path, split = TRUE)
+
+message("=== A_MM_05 Merge WDI + QoG + IMF ===")
+message("Run at: ", format(Sys.time()))
+
+panel <- readRDS(here("data", "intermediate", "mm_polity.rds"))
+
+# Make sure panel has iso3c for country-code joins.
+if (requireNamespace("countrycode", quietly = TRUE) &&
+    !"iso3c" %in% names(panel)) {
+  panel$iso3c <- countrycode::countrycode(panel$country, "country.name",
+                                          "iso3c", warn = FALSE)
+}
+
+# ---- WDI ---------------------------------------------------------------
+wdi_path <- here("data", "raw", "wdi", "wdi_indicators.rds")
+if (file.exists(wdi_path)) {
+  wdi <- readRDS(wdi_path)
+  # wbstats default columns: iso3c, iso2c, country, date, <indicator cols>
+  # The indicator columns are named by the label we passed, so:
+  #   health_pct_gdp, edu_pct_gdp, socprot_cov, pop_total.
+  wdi_sel <- wdi %>%
+    transmute(iso3c,
+              year                = as.integer(date),
+              wdi_health_pct_gdp  = health_pct_gdp,
+              wdi_edu_pct_gdp     = edu_pct_gdp,
+              wdi_socprot_cov     = socprot_cov,
+              wdi_pop_total       = pop_total)
+  panel <- left_join(panel, wdi_sel, by = c("iso3c", "year"))
+  message("  Joined WDI: health%GDP non-miss = ",
+          round(100 * mean(!is.na(panel$wdi_health_pct_gdp)), 1), "%")
+} else {
+  wdi_cols <- c("wdi_health_pct_gdp", "wdi_edu_pct_gdp",
+                "wdi_socprot_cov", "wdi_pop_total")
+  for (col in wdi_cols) panel[[col]] <- NA_real_
+  message("  WDI file missing; run R/00_download_wdi.R.")
+}
+
+# ---- QoG ---------------------------------------------------------------
+qog_path <- here("data", "raw", "qog", "qog_std_ts.csv")
+if (file.exists(qog_path)) {
+  qog_cols_needed <- c("ccode", "cname", "year",
+                       "gii_gii", "ti_cpi", "van_index")
+  # The QoG TS CSV is huge; read only the columns we actually use.
+  qog <- tryCatch(
+    read_csv(qog_path, show_col_types = FALSE, progress = FALSE,
+             col_select = any_of(qog_cols_needed)),
+    error = function(e) {
+      message("  QoG read failed: ", e$message); NULL
+    }
+  )
+  if (!is.null(qog) && nrow(qog) > 0) {
+    if (requireNamespace("countrycode", quietly = TRUE) &&
+        "cname" %in% names(qog)) {
+      qog$iso3c <- countrycode::countrycode(qog$cname, "country.name",
+                                            "iso3c", warn = FALSE)
+    }
+    qog_sel <- qog %>%
+      filter(!is.na(iso3c)) %>%
+      transmute(iso3c, year = as.integer(year),
+                qog_gii = if ("gii_gii" %in% names(.)) gii_gii else NA_real_,
+                qog_cpi = if ("ti_cpi"  %in% names(.)) ti_cpi  else NA_real_)
+    panel <- left_join(panel, qog_sel, by = c("iso3c", "year"))
+    message("  Joined QoG: CPI non-miss = ",
+            round(100 * mean(!is.na(panel$qog_cpi)), 1), "%")
+  } else {
+    panel$qog_gii <- NA_real_
+    panel$qog_cpi <- NA_real_
+  }
+} else {
+  panel$qog_gii <- NA_real_
+  panel$qog_cpi <- NA_real_
+  message("  QoG file missing; run R/00_download_qog.R.")
+}
+
+# ---- IMF WEO -----------------------------------------------------------
+# TODO: parse WEO Excel export; join on country, year. For now pass-through.
+panel$imf_ggx_ngdp <- NA_real_
+
+saveRDS(panel, here("data", "analysis", "a_mm_panel.rds"))
+message("Saved: data/analysis/a_mm_panel.rds")
+
+macro <- function(name, value) sprintf("\\newcommand{\\%s}{%s}", name, value)
+# Note: \MMPanelNCountries is emitted by A_MM_02; do not redefine here.
+writeLines(
+  c("% Auto-generated by A_MM_05_merge_wdi_qog.R",
+    paste0("% Generated: ", Sys.time()),
+    macro("MMPanelNRowsPostMerge",
+          format(nrow(panel), big.mark = ","))),
+  here("output", "tables", "mm_outcome_macros.tex")
+)
+
+sink()

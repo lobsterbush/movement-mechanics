@@ -83,9 +83,10 @@ Plan cycle. A Rambachan--Roth \cite{rambachan2023} sensitivity analysis
 and a \AUSMVNSpecs-cell specification curve locate the 95\% robust
 interval for the contrast around zero. Read together with the
 cross-national companion paper (A\_MM) \cite{clark_regan_2022}, the
-two-paper headline is that \emph{once nonviolence is treated as a
-within-unit treatment effect rather than a campaign-type description,
-the Nonviolence Premium does not survive at either scale.}
+two-paper headline is that \emph{once the Nonviolence Premium is
+estimated as a fixed-effects arm contrast at the county (A\_US) or
+country (A\_MM) scale---not as a between-campaign comparison of the
+Chenoweth--Stephan kind---it does not survive at either scale.}
 \end{abstract}
 
 \section{Introduction}
@@ -118,7 +119,7 @@ panel used in the Crabtree--Holbein fiscal-response analysis
 nonviolent and a violent arm, treat each arm with the Callaway and
 Sant'Anna \cite{callaway2021} staggered-DiD estimator, and define the
 headline test as the contrast of the two arms' ATTs on Census of
-Governments per-capita public-safety spending \cite{cog}.
+Governments per-capita public-safety spending \cite{cog}. The
 paired cross-national companion paper (A\_MM) uses the same estimand
 against V-Dem \cite{coppedge2024vdem} electoral-democracy outcomes on the
 Mass Mobilization panel of anti-government protests across
@@ -138,7 +139,6 @@ We consider three hypotheses:
         $\mathbb{E}[Y(1,\text{nv})-Y(0)] <
          \mathbb{E}[Y(1,\text{v})-Y(0)]$.
 \end{description}
-We refer back to these hypotheses only by name.
 
 Our main finding, reported with all the honesty the data support, is that
 the headline contrast on public-safety spending is negative
@@ -159,9 +159,10 @@ the result as consistent with---but not evidence for---a Violence
 Backlash pattern, and explicitly flag the 2020 confounder as the next
 diagnostic target for a follow-up paper. The substantive headline
 that emerges from this paper and its cross-national companion
-(A\_MM) is simple: \emph{once nonviolence is treated as a within-unit
-treatment effect rather than a campaign-type description, the
-Nonviolence Premium does not survive at either scale.}
+(A\_MM) is simple: \emph{once the Nonviolence Premium is estimated as
+a fixed-effects arm contrast at the county (A\_US) or country (A\_MM)
+scale---not as a between-campaign comparison of the
+Chenoweth--Stephan kind---it does not survive at either scale.}
 
 \section{Theory}
 A simple model of local-government budgeting gives each hypothesis a
@@ -432,10 +433,26 @@ the shared 2020 fiscal shock.
 
 \section{Discussion}
 The single most important finding of this paper, taken together with
-the cross-national companion (A\_MM), is that \emph{once nonviolence
-is treated as a within-unit treatment effect rather than a
-campaign-type description, the Nonviolence Premium does not survive at
-either scale}. The rest of this section unpacks that claim.
+the cross-national companion (A\_MM), is that \emph{once the
+Nonviolence Premium is estimated as a fixed-effects arm contrast at
+the county (A\_US) or country (A\_MM) scale---not as a
+between-campaign comparison of the Chenoweth--Stephan kind---it does
+not survive at either scale}. The distinction between our design and
+Chenoweth and Stephan's \cite{chenoweth2011} is worth making
+explicit, because it determines what the estimand means. Chenoweth
+and Stephan's unit of analysis is the \emph{campaign}: NAVCO
+classifies each campaign as nonviolent or violent as a whole, and the
+headline 3.5\%-cliff comes from comparing success rates across
+campaigns. We do not follow individual campaigns as they shift
+tactics. Our unit is the county-year; our treatment is the first
+year in which nonviolent (or violent) per-capita intensity crosses
+the 90th percentile of its nonzero distribution; and our ATT is the
+within-county change in the outcome compared to the evolution of
+never-treated controls, with county and year fixed effects absorbing
+stable differences and common shocks. ``Within-unit'' therefore
+refers to within-county variation over time, not to within-campaign
+tactical switching, which is rare in the data and would require an
+entirely different identification strategy.
 
 Of the three hypotheses, the raw contrast is most consistent with the
 \emph{Violence Backlash} pattern: the point estimate is negative, the
@@ -482,7 +499,8 @@ its Rambachan--Roth sensitivity are therefore best read as an audit of
 the design rather than a test of the underlying theoretical claim.
 The two-paper takeaway, read with the Mass Mobilization companion,
 still holds here: \emph{the Nonviolence Premium does not survive
-recasting as a within-unit treatment effect.}
+recasting as a fixed-effects arm contrast at the county or country
+scale.}
 
 Follow-up work will (i) drop the 2020 cohort as the headline sample and
 report the pre-2020 / post-2020 comparison explicitly, (ii) add the

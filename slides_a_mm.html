@@ -18,82 +18,97 @@
     --warning: #d97706; --warning-subtle: rgba(217, 119, 6, 0.10);
     --border: #e2e3e8; --shadow: rgba(17, 17, 24, 0.08);
   }
-  html, body, .reveal { background: var(--bg); color: var(--text); }
-  .reveal { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 400; }
-  .reveal .slides { text-align: left; }
-  .reveal .slides section {
-    padding: 1.6em 2.2em;
-    background-image:
-      radial-gradient(circle at 10% 10%, rgba(55, 48, 163, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 90% 90%, rgba(67, 56, 202, 0.04) 0%, transparent 40%),
-      radial-gradient(circle, rgba(55, 48, 163, 0.05) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 28px 28px;
+  html, body { background: var(--bg); color: var(--text); margin: 0; height: 100%; }
+  .reveal {
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 400;
+    background:
+      radial-gradient(circle at 8% 10%, rgba(55, 48, 163, 0.07) 0%, transparent 40%),
+      radial-gradient(circle at 92% 92%, rgba(67, 56, 202, 0.06) 0%, transparent 45%),
+      radial-gradient(circle, rgba(55, 48, 163, 0.06) 1px, transparent 1px),
+      var(--bg);
+    background-size: 100% 100%, 100% 100%, 28px 28px, auto;
   }
+  .reveal .slides { text-align: left; }
+  .reveal .slides section { padding: 1.4em 2.2em; background: transparent; }
   .reveal h1, .reveal h2, .reveal h3 {
     font-family: 'Cormorant Garamond', serif; font-weight: 500;
     letter-spacing: -0.01em; color: var(--text);
-    text-transform: none; margin-bottom: 0.4em;
+    text-transform: none; margin-bottom: 0.35em;
   }
-  .reveal h1 { font-size: 2.4em; line-height: 1.1; }
-  .reveal h2 { font-size: 1.6em; line-height: 1.15; }
-  .reveal h3 { font-size: 1.2em; color: var(--accent); }
-  .reveal p, .reveal li { color: var(--text-secondary); line-height: 1.55; font-size: 0.85em; }
+  .reveal h1 { font-size: 2.4em; line-height: 1.05; }
+  .reveal h2 { font-size: 1.55em; line-height: 1.15; margin-bottom: 0.5em; }
+  .reveal h3 { font-size: 1.05em; color: var(--accent); margin-bottom: 0.25em; }
+  .reveal p, .reveal li { color: var(--text-secondary); line-height: 1.5; font-size: 0.78em; }
   .reveal strong { color: var(--text); font-weight: 700; }
   .reveal em { color: var(--accent); font-style: italic; }
   .reveal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-subtle); }
   .reveal a:hover { color: var(--accent-hover); border-bottom-color: var(--accent); }
   .label {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.65em;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6em;
     text-transform: uppercase; letter-spacing: 0.18em;
-    color: var(--accent); margin-bottom: 0.4em; font-weight: 600;
+    color: var(--accent); margin-bottom: 0.3em; font-weight: 600;
   }
   .subtitle {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    color: var(--text-muted); font-size: 1.1em; margin-top: 0.5em;
+    color: var(--text-muted); font-size: 1.05em; margin-top: 0.3em;
   }
   .callout {
-    background: var(--accent-subtle); border-left: 4px solid var(--accent);
-    padding: 1em 1.4em; margin: 1em 0; border-radius: 0 6px 6px 0;
+    background: var(--accent-subtle); border-left: 3px solid var(--accent);
+    padding: 0.8em 1.1em; margin: 0.7em 0; border-radius: 0 4px 4px 0;
   }
   .callout-warning { background: var(--warning-subtle); border-left-color: var(--warning); }
-  .callout p { margin: 0; color: var(--text); }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6em; align-items: start; }
+  .callout p { margin: 0; color: var(--text); font-size: 0.78em; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: start; }
+  .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; align-items: start; }
   .card {
-    background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px);
-    border: 1px solid var(--border); border-radius: 8px;
-    padding: 1.2em 1.4em; box-shadow: 0 4px 12px var(--shadow);
+    background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(10px);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 0.8em 1em;
+    box-shadow: 0 2px 8px var(--shadow);
   }
   .card h3 { margin-top: 0; }
-  .stat { text-align: center; margin: 0.6em 0; }
+  .card p { font-size: 0.75em; margin-bottom: 0; }
+  .stat { text-align: center; margin: 0.4em 0; }
   .stat .n {
-    font-family: 'Cormorant Garamond', serif; font-size: 4em; font-weight: 600;
+    font-family: 'Cormorant Garamond', serif; font-size: 3em; font-weight: 600;
     color: var(--accent); line-height: 1;
   }
   .stat .u {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.8em;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7em;
     color: var(--text-muted); text-transform: uppercase;
-    letter-spacing: 0.1em; display: block; margin-top: 0.5em;
+    letter-spacing: 0.1em; display: block; margin-top: 0.35em;
   }
   .reveal section.section { text-align: center; }
-  .reveal section.section h1 { font-size: 3em; margin: 0.4em 0; }
+  .reveal section.section h1 { font-size: 2.8em; margin: 0.4em 0; }
   .reveal section.dark {
-    background: var(--bg-dark); color: var(--bg);
-    background-image:
-      radial-gradient(circle at 30% 30%, rgba(67, 56, 202, 0.18) 0%, transparent 60%),
-      radial-gradient(circle at 70% 70%, rgba(55, 48, 163, 0.15) 0%, transparent 60%);
+    background:
+      radial-gradient(circle at 30% 30%, rgba(67, 56, 202, 0.20) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(55, 48, 163, 0.18) 0%, transparent 60%),
+      var(--bg-dark);
+    color: #f6f6f8;
   }
-  .reveal section.dark h1, .reveal section.dark h2 { color: #f6f6f8; }
+  .reveal section.dark h1, .reveal section.dark h2, .reveal section.dark h3 { color: #f6f6f8; }
   .reveal section.dark p { color: #c8c8d2; }
   .reveal section.dark .label { color: #a5a7e1; }
-  .reveal img { max-height: 500px; object-fit: contain; box-shadow: 0 4px 16px var(--shadow); border-radius: 4px; background: #fff; }
-  .reveal table { font-family: 'JetBrains Mono', monospace; font-size: 0.7em; border-collapse: collapse; margin: 0.6em 0; width: 100%; }
-  .reveal th { color: var(--accent); border-bottom: 2px solid var(--accent-subtle); padding: 0.4em 0.6em; text-align: left; }
-  .reveal td { padding: 0.35em 0.6em; border-bottom: 1px solid var(--border); }
+  .reveal section.dark .card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
+  .reveal section.dark .card p { color: #c8c8d2; }
+  .reveal section.dark .callout { background: rgba(55, 48, 163, 0.25); border-left-color: #a5a7e1; }
+  .reveal section.dark .callout p { color: #eaeaf0; }
+  .reveal img {
+    max-height: 440px; width: auto; max-width: 100%;
+    object-fit: contain; background: #fff;
+    box-shadow: 0 4px 16px var(--shadow); border-radius: 4px;
+    display: block; margin: 0.4em auto;
+  }
+  .reveal table { font-family: 'JetBrains Mono', monospace; font-size: 0.68em; border-collapse: collapse; margin: 0.4em 0; width: 100%; }
+  .reveal th { color: var(--accent); border-bottom: 2px solid var(--accent-subtle); padding: 0.35em 0.5em; text-align: left; }
+  .reveal td { padding: 0.3em 0.5em; border-bottom: 1px solid var(--border); }
   .reveal td.num { text-align: right; }
   .reveal .footer {
-    position: absolute; bottom: 1em; right: 1.4em;
+    position: absolute; bottom: 0.6em; right: 1em;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.55em; color: var(--text-muted);
+    font-size: 0.5em; color: var(--text-muted);
     letter-spacing: 0.1em; text-transform: uppercase;
   }
   .reveal .progress { color: var(--accent); }
@@ -103,184 +118,262 @@
 <body>
 <div class="reveal"><div class="slides">
 
-  <!-- Title -->
+  <!-- 1. Title -->
   <section class="section">
-    <p class="label">Movement Mechanics — A_MM</p>
+    <p class="label">Movement Mechanics — Paper A_MM</p>
     <h1>The Nonviolence Premium</h1>
     <p class="subtitle">Cross-national evidence from 166 countries, 1990–2020</p>
-    <p style="margin-top: 2em; font-size: 0.95em;">Charles Crabtree</p>
-    <p style="font-size: 0.7em; color: var(--text-muted);">Monash University · Korea University</p>
+    <p style="margin-top: 1.8em; font-size: 0.88em;">Charles Crabtree</p>
+    <p style="font-size: 0.66em; color: var(--text-muted);">Monash University · Korea University</p>
     <p class="footer">slides_a_mm.html</p>
   </section>
 
-  <!-- Hook -->
+  <!-- 2. The Question -->
   <section>
     <p class="label">The Question</p>
-    <h2>Does the nonviolence premium travel?</h2>
-    <p>Chenoweth & Stephan's 3.5%-of-population claim is built on campaign-type comparisons. We re-estimate it as a within-country treatment effect.</p>
-    <div class="callout">
-      <p>If nonviolent discipline is the tactical variable that matters, we should see it in V-Dem polyarchy whether we ask the question in U.S. counties or in country-years.</p>
+    <h2>Does the nonviolence premium travel? And does the 3.5% cliff hold up under a within-country treatment-effect design?</h2>
+    <p>Chenoweth and Stephan (2011) famously argue that campaigns mobilising ≥3.5% of population almost always succeed when nonviolent. That claim is between-campaign. We ask the same question at the <em>country-year</em> level, holding the country (and the year) fixed, so that the comparison is between years of a country with nonviolent-dominated mobilisation and years of the same country without — and between countries that did and did not experience such a pulse.</p>
+  </section>
+
+  <!-- 3. Why this paper matters -->
+  <section>
+    <p class="label">Why Redo This at Country-Year Scale</p>
+    <h2>The 3.5% cliff is a powerful descriptive claim, but it can't isolate the tactical-character effect from selection.</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>What C&amp;S identify</h3>
+        <p>Success rates of campaigns classified nonviolent vs violent across roughly 300 NAVCO cases. Powerful descriptive evidence, but campaigns differ systematically in country, era, state capacity, and coalition composition.</p>
+      </div>
+      <div class="card">
+        <h3>What we identify</h3>
+        <p>The within-country ATT of a nonviolent-dominated protest pulse on V-Dem polyarchy, differenced against never-pulsed controls, with country and year fixed effects absorbing stable differences and common shocks.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top: 0.7em;">
+      <p><strong>"Within-unit" = within-country over time.</strong> We do not follow single campaigns through tactical shifts; that would require a different identification strategy. We compare countries by the kind of pulse they received.</p>
     </div>
   </section>
 
-  <!-- Hypotheses -->
+  <!-- 4. Hypotheses -->
   <section>
-    <p class="label">Three Hypotheses · Same Names as A_US</p>
-    <h2>Named, not numbered.</h2>
+    <p class="label">Three Competing Claims</p>
+    <h2>Same claims as the U.S.-county companion (A_US), at the country-year scale.</h2>
     <div class="cols">
       <div class="card">
         <h3>Nonviolence Premium</h3>
-        <p>Conditional on intensity, nonviolent protest produces a larger increase in V-Dem electoral democracy than violent protest.</p>
+        <p>Conditional on intensity, nonviolent protest produces a larger increase in V-Dem electoral democracy than violent protest. This is the civil-resistance frame at the cross-national scale.</p>
       </div>
       <div class="card">
         <h3>Intensity Equivalence</h3>
-        <p>Conditional on intensity, the arm contrast is zero.</p>
+        <p>Conditional on intensity, the arm contrast is zero. Tactical character adds no information beyond scale.</p>
       </div>
     </div>
-    <div class="card" style="margin-top: 1em;">
+    <div class="card" style="margin-top: 0.7em;">
       <h3>Violence Backlash</h3>
-      <p>Conditional on intensity, violent protest produces a <em>larger</em> response than nonviolent protest.</p>
+      <p>Conditional on intensity, violent protest produces a <em>larger</em> response than nonviolent protest — because state-security repertoires and elite bargaining, not public-opinion mobilisation, are what move polyarchy in many regime types.</p>
     </div>
   </section>
 
-  <!-- Data -->
+  <!-- 5. Why Mass Mobilization over NAVCO -->
+  <section>
+    <p class="label">Why Mass Mobilization</p>
+    <h2>We need event-level data to estimate a country-year treatment effect. NAVCO is campaign-level.</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>NAVCO (what Chenoweth &amp; Stephan use)</h3>
+        <p>Unit = the campaign. Each case has a nonviolent/violent label, a success outcome, and aggregate descriptors. You cannot recover a country-year treatment indicator or a pulse timing from it.</p>
+      </div>
+      <div class="card">
+        <h3>Mass Mobilization v5.1 (Clark–Regan)</h3>
+        <p>Unit = the protest event. 17,145 geocoded anti-government events, 166 countries, 1990–2020. Each event has a <em>protesterviolence</em> flag, a seven-bin participant bracket, seven state-response codes, and a date. Exactly what a staggered-DiD design needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Why V-Dem polyarchy -->
+  <section>
+    <p class="label">Why V-Dem Polyarchy</p>
+    <h2>It measures the thing civil-resistance theory says nonviolence wins.</h2>
+    <p>Chenoweth and Stephan's success-outcome is explicitly regime change toward democracy. V-Dem's polyarchy index (Coppedge et al., v14) operationalises Dahl's electoral-democracy dimensions on a 0–1 continuous scale, with annual country observations and near-complete coverage back to 1990. Polity 5 gives a second outcome on a different scale for robustness. WDI social-spending outcomes give the cross-national analogue to A_US public-safety spending.</p>
+  </section>
+
+  <!-- 7. Data -->
   <section>
     <p class="label">Data</p>
-    <h2>Mass Mobilization v5.1 + V-Dem v14 + Polity V + WDI</h2>
+    <h2>Mass Mobilization v5.1 + V-Dem v14 + Polity V + WDI, 1990–2020.</h2>
     <div class="cols">
       <div>
-        <p class="stat"><span class="n">17K</span><span class="u">protest events 1990–2020</span></p>
+        <p class="stat"><span class="n">17K</span><span class="u">protest events</span></p>
       </div>
       <div>
-        <p class="stat"><span class="n">5,146</span><span class="u">country-years across 166 countries</span></p>
+        <p class="stat"><span class="n">5,146</span><span class="u">country-years · 166 countries</span></p>
       </div>
     </div>
-    <p style="text-align:center; font-size: 0.8em;">Participant brackets non-empty for 57.7% of events &middot; remaining preserved as NA, not imputed.</p>
+    <p style="text-align:center; font-size: 0.72em;">Participant brackets non-empty for 57.7% of events; remaining NAs preserved, not imputed. V-Dem polyarchy joined at 99.3% coverage; Polity 5 at 83.4%.</p>
   </section>
 
-  <!-- Time series -->
+  <!-- 8. Time series — corrected -->
   <section>
-    <p class="label">Mobilization Mix</p>
-    <h2>Mean nonviolent share rises gently across the panel</h2>
-    <img src="output/figures/slides/a_mm_timeseries.png" alt="Annual mean nonviolent share">
+    <p class="label">Mobilisation Mix by Year</p>
+    <h2>Mean nonviolent share fluctuates in the 2000s, declines sharply after 2010, and collapses in 2020.</h2>
+    <img src="output/figures/slides/a_mm_timeseries.png" alt="Global mean nonviolent share 1990-2020">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Global mean country-year share of nonviolent protest hovers 0.55–0.65 through the 1990s and 2000s, then steps down to ~0.45 in the early 2010s (Arab Spring / Syria contamination), partially recovers, and collapses to ~0.25 in 2020. The share is <em>not</em> monotonic. This is part of why we include a drop-arab-spring robustness cell in the multiverse.</p>
   </section>
 
-  <!-- Choropleth -->
+  <!-- 9. Choropleth -->
   <section>
     <p class="label">Geography</p>
-    <h2>Country-level nonviolent share, 1990–2020</h2>
+    <h2>Country-level mean nonviolent share, 1990–2020.</h2>
     <img src="output/figures/slides/a_mm_choropleth.png" alt="Nonviolent-share choropleth">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Darker indigo = higher nonviolent share over the panel. Latin America and parts of East Asia sit on the high end; Middle East and parts of Sub-Saharan Africa sit lower. The raw map already hints at a confounder: polity types with more political-opportunity structure lean nonviolent.</p>
   </section>
 
-  <!-- Design -->
+  <!-- 10. V-Dem trajectories — honest reading -->
+  <section>
+    <p class="label">V-Dem Trajectories by Nonviolent-Share Tercile</p>
+    <h2>Descriptively, the countries that protested most violently gained the most polyarchy.</h2>
+    <img src="output/figures/slides/a_mm_vdem_paths.png" alt="Polyarchy trajectories by nonviolent-share tercile">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">The <em>bottom</em> nonviolent-share tercile (most violent countries) rises fastest — from 0.39 to 0.53. The top tercile (most nonviolent) only reaches 0.48. This is the opposite of what a naive Nonviolence-Premium reading would predict, and it is the selection problem a between-campaign design cannot escape. Our fixed-effects design absorbs exactly this kind of country-level confounding.</p>
+  </section>
+
+  <!-- 11. Design -->
   <section>
     <p class="label">Design</p>
-    <h2>Same arm-contrast estimand, four estimators</h2>
+    <h2>Same arm-contrast estimand as A_US, at the country-year scale.</h2>
     <div class="callout">
-      <p><strong>Δ = ATT<sub>nv</sub> − ATT<sub>v</sub></strong> on V-Dem polyarchy. Treatment per arm: first year a country crosses the 90th percentile of nonviolent (or violent) intensity.</p>
+      <p><strong>$\widehat\Delta = \widehat{\mathrm{ATT}}_{\mathrm{nv}} - \widehat{\mathrm{ATT}}_{\mathrm{v}}$</strong> on V-Dem polyarchy. Treatment per arm: first year a country crosses the 90th percentile of nonviolent (or violent) per-capita intensity. Country and year fixed effects absorb stable regime-level differences and global shocks.</p>
     </div>
-    <div class="cols" style="margin-top: 1em;">
-      <div class="card"><h3>Callaway–Sant'Anna</h3><p>Primary; outcome regression to avoid the fastglm segfault on this country-year panel.</p></div>
-      <div class="card"><h3>Synthetic DiD</h3><p>Per-treated-country, donor pool = never-treated. Aggregated via cross-country IID SE.</p></div>
+    <p>We run four estimators rather than one because identification in a cross-national panel rests on multiple non-nested assumptions, and we want to know which conclusions survive which assumptions.</p>
+  </section>
+
+  <!-- 12. Why four estimators -->
+  <section>
+    <p class="label">Why Four Estimators</p>
+    <h2>Different estimators relax different assumptions. If they agree, we've learned something.</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>Callaway–Sant'Anna (primary)</h3>
+        <p>Staggered DiD, cohort-specific ATTs, not-yet-treated controls. Fastest to fit; parallel-trends is the binding assumption.</p>
+      </div>
+      <div class="card">
+        <h3>Synthetic DiD (Arkhangelsky et al. 2021)</h3>
+        <p>Weights donors by pre-period outcome match. Handles unit- and time-specific unobservables under an "interactive" factor structure. Parallel trends is replaced by a convex hull assumption.</p>
+      </div>
     </div>
     <div class="cols" style="margin-top: 0.6em;">
-      <div class="card"><h3>Augmented Synthetic Control</h3><p><code>multisynth</code> with ridge augmentation; conservative wild-bootstrap SE.</p></div>
-      <div class="card"><h3>PanelMatch</h3><p>Mahalanobis refinement on lagged outcomes, leads 0–4.</p></div>
+      <div class="card">
+        <h3>Augmented Synthetic Control (multisynth)</h3>
+        <p>Ben-Michael, Feller, Rothstein (2021). Handles many treated units; ridge augmentation for donors that don't fit perfectly.</p>
+      </div>
+      <div class="card">
+        <h3>PanelMatch (Imai, Kim, Wang 2023)</h3>
+        <p>Matches each treated country-year to controls with similar pre-period outcome trajectories. Essentially conditional independence given the matched history.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Headline -->
+  <!-- 13. Headline CS-DiD -->
   <section>
-    <p class="label">Headline Estimate</p>
-    <h2>Callaway–Sant'Anna polyarchy contrast = −0.019, p = 0.527</h2>
+    <p class="label">Headline Estimate · Callaway–Sant'Anna</p>
+    <h2>The polyarchy contrast is backlash-signed but statistically indistinguishable from zero.</h2>
     <table>
       <tr><th>Quantity</th><th class="num">Value</th></tr>
-      <tr><td>ATT<sub>nv</sub> (raw)</td><td class="num">−0.012</td></tr>
-      <tr><td>ATT<sub>v</sub> (raw)</td><td class="num">+0.007</td></tr>
+      <tr><td>ATT<sub>nv</sub> (raw, polyarchy 0–1)</td><td class="num">−0.012</td></tr>
+      <tr><td>ATT<sub>v</sub>  (raw, polyarchy 0–1)</td><td class="num">+0.007</td></tr>
       <tr><td><strong>Δ (contrast)</strong></td><td class="num"><strong>−0.019</strong></td></tr>
-      <tr><td>SE (Δ)</td><td class="num">0.031</td></tr>
+      <tr><td>SE (Δ, independent-arm lower bound)</td><td class="num">0.031</td></tr>
       <tr><td>p</td><td class="num">0.527</td></tr>
       <tr><td>Treated countries (nv / v / overlap)</td><td class="num">67 / 62 / 29</td></tr>
     </table>
-    <p style="font-size:0.7em; color: var(--text-muted);">No 2020-style fiscal shock confound — violent arm spreads across the full 1990–2020 window.</p>
+    <p style="font-size: 0.7em; color: var(--text-muted);">No 2020-style single-year fiscal-shock confounder — the violent arm spreads across the full 1990–2020 window — which makes this cleaner than the A_US estimate.</p>
   </section>
 
-  <!-- Robustness: four estimators -->
+  <!-- 14. Four-estimator robustness -->
   <section class="dark">
-    <p class="label">Four-Estimator Robustness</p>
+    <p class="label">Four Estimators Agree</p>
     <h2>Every robust 95% interval covers zero.</h2>
     <table style="color: #c8c8d2;">
-      <tr><th style="color:#a5a7e1;">Estimator</th><th class="num" style="color:#a5a7e1;">ATT</th><th class="num" style="color:#a5a7e1;">SE</th></tr>
+      <tr><th style="color:#a5a7e1;">Estimator</th><th class="num" style="color:#a5a7e1;">ATT (polyarchy)</th><th class="num" style="color:#a5a7e1;">SE</th></tr>
       <tr><td>Callaway–Sant'Anna (contrast)</td><td class="num">−0.019</td><td class="num">0.031</td></tr>
       <tr><td>Synthetic DiD (aggregate)</td><td class="num">−0.001</td><td class="num">0.012</td></tr>
       <tr><td>Augmented Synthetic Control</td><td class="num">+0.010</td><td class="num">0.236*</td></tr>
       <tr><td>PanelMatch (lead 4)</td><td class="num">−0.012</td><td class="num">0.008</td></tr>
     </table>
-    <p style="font-size:0.7em; color: #a5a7e1; margin-top: 1em;">*augsynth wild-bootstrap SE is conservative without unit fixed effects.</p>
+    <p style="margin-top: 0.8em; font-size: 0.7em; color: #a5a7e1;">*augsynth wild-bootstrap SE is conservative without unit fixed effects. Nonetheless, all four point estimates are economically small (|ATT| ≤ 0.02 on a 0–1 polyarchy scale) and every 95% CI covers zero.</p>
   </section>
 
-  <!-- Synthdid figure -->
+  <!-- 15. Synthdid figure -->
   <section>
-    <p class="label">Synthetic DiD · 46 of 67 treated countries identified</p>
-    <h2>Per-country ATTs scatter symmetrically around zero</h2>
-    <img src="output/figures/slides/a_mm_synthdid_paths-1.png" alt="Per-country synthdid ATTs" style="max-height: 460px;">
+    <p class="label">Synthetic DiD · Per-Country ATTs</p>
+    <h2>46 of 67 treated countries yielded identified ATTs. They scatter symmetrically around zero.</h2>
+    <img src="output/figures/slides/a_mm_synthdid_paths-1.png" alt="Per-country synthdid ATTs" style="max-height: 430px;">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">The 21 dropped countries failed a completeness check (fewer than 10 complete-panel donors or fewer than 3 pre-treatment periods on V-Dem polyarchy). The included distribution is symmetric around zero with no systematic premium or backlash.</p>
   </section>
 
-  <!-- C&S replication - the punchline slide -->
+  <!-- 16. Augsynth figure -->
+  <section>
+    <p class="label">Augmented Synthetic Control · Polyarchy Path</p>
+    <h2>The average ATT path stays on zero from treatment through the 5-year lead.</h2>
+    <img src="output/figures/slides/a_mm_augsynth_paths-1.png" alt="augsynth ATT path">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Ridge-augmented average treatment path across all treated countries. Wild-bootstrap CI is deliberately conservative without unit fixed effects; the point estimate barely moves off zero at any lag or lead.</p>
+  </section>
+
+  <!-- 17. Chenoweth-Stephan replication — payoff slide -->
   <section class="dark">
     <p class="label">Chenoweth–Stephan Replication</p>
-    <h2>Only 4 violent-maximalist country-years exist to compare against 30 nonviolent ones.</h2>
-    <div class="cols" style="margin-top: 2em;">
+    <h2>Only 4 violent-maximalist country-years against 30 nonviolent ones.</h2>
+    <div class="cols" style="margin-top: 1.5em;">
       <div>
-        <p class="stat"><span class="n">30</span><span class="u">nonviolent maximalist country-years</span></p>
+        <p class="stat"><span class="n">30</span><span class="u">nv-maximalist country-years (≥3.5%)</span></p>
       </div>
       <div>
-        <p class="stat"><span class="n">4</span><span class="u">violent maximalist country-years</span></p>
+        <p class="stat"><span class="n">4</span><span class="u">v-maximalist country-years (≥3.5%)</span></p>
       </div>
     </div>
-    <p style="margin-top: 2em; color: #c8c8d2;">Five-year-forward polyarchy gap (nv − v) = −0.006 (SE 0.060). The 3.5% cliff is built on a sample where the violent arm barely exists.</p>
+    <p style="margin-top: 1.2em; color: #c8c8d2;">Five-year-forward polyarchy gap (nv − v) = −0.006 (SE 0.060). The famous 3.5% cliff rests on a comparison where the violent arm barely exists. The cliff is not refuted by our data; it is simply not adequately tested against a counterfactual in which the violent arm is populated.</p>
   </section>
 
-  <!-- Multiverse -->
+  <!-- 18. Specification curve -->
   <section>
-    <p class="label">Robustness · 120-spec curve</p>
-    <h2>The contrast scatters tightly around zero</h2>
+    <p class="label">Specification Curve · 120 Cells</p>
+    <h2>95.6% of plotted spec-curve CIs cover zero.</h2>
     <img src="output/figures/slides/a_mm_multiverse-1.png" alt="MM specification curve">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Of 120 spec cells (3 violence measures × 4 cutoffs × 5 outcomes × 2 sample windows), 45 had a finite, non-outlier SE. Almost all cluster on zero with tight CIs; the right tail with large CIs corresponds to outcome × cutoff combos where one arm has fewer than five treated countries and the estimate is essentially unidentified.</p>
   </section>
 
-  <!-- Joint discussion -->
+  <!-- 19. Joint discussion -->
   <section>
     <p class="label">Reading A_US and A_MM Together</p>
     <h2>The premium does not survive at either scale.</h2>
     <div class="cols">
       <div class="card">
         <h3>U.S. counties (A_US)</h3>
-        <p>Backlash-signed but insignificant; identified by a 2020 cohort whose CoG fiscal data is contaminated by ARPA.</p>
+        <p>Backlash-signed but insignificant contrast; identified by a 2020 cohort whose CoG fiscal data is contaminated by ARPA. Raw sign consistent with Violence Backlash; 95% CI covers zero.</p>
       </div>
       <div class="card">
         <h3>Cross-national (A_MM)</h3>
-        <p>Clean null across four estimators. No single-year fiscal-shock confounder.</p>
+        <p>Clean null across four estimators. No single-year fiscal-shock confounder. The 3.5%-maximalist subsample has only 4 violent country-years to compare against 30 nonviolent ones.</p>
       </div>
     </div>
-    <div class="callout" style="margin-top: 1em;">
-      <p><strong>Combined reading:</strong> Intensity Equivalence is the conclusion that survives once the 2020 U.S. confounder is removed.</p>
+    <div class="callout" style="margin-top: 0.7em;">
+      <p><strong>Combined reading.</strong> Once we remove the 2020 U.S. fiscal confounder, Intensity Equivalence is the null that survives. The Chenoweth–Stephan 3.5% cliff is not overturned, but it rests on a comparison that our within-country design cannot populate with enough violent maximalist cases to test cleanly.</p>
     </div>
   </section>
 
-  <!-- Closing -->
+  <!-- 20. Bottom line -->
   <section class="dark">
     <p class="label">Bottom Line · Two-Paper Headline</p>
-    <h2>Once nonviolence is treated as a within-unit treatment effect rather than a campaign-type description, the Nonviolence Premium does not survive at either scale.</h2>
-    <p style="margin-top: 1.5em; color: #c8c8d2;">The Chen­oweth–Stephan 3.5%-cliff is consistent with our data only because the violent maximalist arm is empirically rare. A within-country test cannot reject the null.</p>
+    <h2>Once the Nonviolence Premium is estimated as a fixed-effects arm contrast on county or country-year panels — rather than as a between-campaign comparison à la Chenoweth and Stephan — it does not survive at either scale.</h2>
+    <p style="margin-top: 1.2em; color: #c8c8d2;">Four estimators agree at the country-year scale. The companion U.S. county-year paper (A_US) returns a backlash-signed-but-insignificant contrast that is contaminated by 2020 ARPA transfers.</p>
   </section>
 
-  <!-- Contact -->
+  <!-- 21. Thank you -->
   <section class="section">
     <p class="label">Thank You</p>
-    <h2 style="font-size: 1.4em; margin-top: 1em;">Charles Crabtree</h2>
+    <h2 style="font-size: 1.4em; margin-top: 0.8em;">Charles Crabtree</h2>
     <p>Senior Lecturer, School of Social Sciences, Monash University<br>K-Club Professor, University College, Korea University</p>
-    <p style="margin-top: 1.5em;"><a href="mailto:charles.crabtree@monash.edu">charles.crabtree@monash.edu</a> · <a href="https://charlescrabtree.org">charlescrabtree.org</a></p>
-    <p style="margin-top: 1.2em; font-size: 0.7em;"><a href="paper/A_nonviolence_premium_mm/paper.pdf">Read the paper (PDF)</a></p>
+    <p style="margin-top: 1.2em;"><a href="mailto:charles.crabtree@monash.edu">charles.crabtree@monash.edu</a> · <a href="https://charlescrabtree.org">charlescrabtree.org</a></p>
+    <p style="margin-top: 1em; font-size: 0.7em;"><a href="paper/A_nonviolence_premium_mm/paper.pdf">Read the paper (PDF)</a> · <a href="slides_a_us.html">A_US companion slides</a></p>
   </section>
 
 </div></div>

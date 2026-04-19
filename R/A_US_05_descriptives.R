@@ -129,7 +129,7 @@ p_dist <- panel %>%
   ggplot(aes(log1p(any_protest_per_cap))) +
   geom_histogram(bins = 60, fill = "grey60", colour = "white") +
   theme_tufte(base_size = 11) +
-  labs(x = "log1p(any protest participation, % of pop)",
+  labs(x = "log(1 + protest participation, % of county population)",
        y = "County-years",
        title = "Distribution of county-year protest intensity")
 save_both(p_dist, "a_us_intensity_dist")

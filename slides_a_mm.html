@@ -150,7 +150,7 @@
       </div>
       <div class="card">
         <h3>What we identify</h3>
-        <p>The within-country ATT of a nonviolent-dominated protest pulse on V-Dem polyarchy, differenced against never-pulsed controls, with country and year fixed effects absorbing stable differences and common shocks.</p>
+        <p>The within-country average treatment effect (ATT) of a high-nonviolent-intensity year on V-Dem polyarchy, differenced against the trajectory of countries that never had such a year, with country and year fixed effects absorbing stable differences and common shocks.</p>
       </div>
     </div>
     <div class="callout" style="margin-top: 0.7em;">
@@ -188,8 +188,8 @@
         <p>Unit = the campaign. Each case has a nonviolent/violent label, a success outcome, and aggregate descriptors. You cannot recover a country-year treatment indicator or a pulse timing from it.</p>
       </div>
       <div class="card">
-        <h3>Mass Mobilization v5.1 (Clark–Regan)</h3>
-        <p>Unit = the protest event. 17,145 geocoded anti-government events, 166 countries, 1990–2020. Each event has a <em>protesterviolence</em> flag, a seven-bin participant bracket, seven state-response codes, and a date. Exactly what a staggered-DiD design needs.</p>
+        <h3>Mass Mobilization v5.1 (Clark&ndash;Regan)</h3>
+        <p>Unit = the protest event. 17,145 geocoded anti-government events, 166 countries, 1990&ndash;2020. Each event has a binary protester-violence flag, a seven-bin participant-size bracket, seven state-response codes (from "ignore" through "shootings"), and a date. Exactly what a staggered-DiD design needs.</p>
       </div>
     </div>
   </section>
@@ -198,13 +198,13 @@
   <section>
     <p class="label">Why V-Dem Polyarchy</p>
     <h2>It measures the thing civil-resistance theory says nonviolence wins.</h2>
-    <p>Chenoweth and Stephan's success-outcome is explicitly regime change toward democracy. V-Dem's polyarchy index (Coppedge et al., v14) operationalises Dahl's electoral-democracy dimensions on a 0–1 continuous scale, with annual country observations and near-complete coverage back to 1990. Polity 5 gives a second outcome on a different scale for robustness. WDI social-spending outcomes give the cross-national analogue to A_US public-safety spending.</p>
+    <p>Chenoweth and Stephan's success-outcome is explicitly regime change toward democracy. The Varieties of Democracy (V-Dem) project's polyarchy index (Coppedge et al., v14) operationalises Dahl's electoral-democracy dimensions on a 0&ndash;1 continuous scale, with annual country observations and near-complete coverage back to 1990. Polity&nbsp;5 gives a second regime-quality outcome on a different scale for robustness, and the World Bank's World Development Indicators (WDI) supply social-spending outcomes that play the same role here as Census-of-Governments public-safety spending plays in the U.S. county-year companion paper.</p>
   </section>
 
   <!-- 7. Data -->
   <section>
     <p class="label">Data</p>
-    <h2>Mass Mobilization v5.1 + V-Dem v14 + Polity V + WDI, 1990–2020.</h2>
+    <h2>Mass Mobilization v5.1 + V-Dem v14 + Polity&nbsp;5 + World Bank WDI, 1990&ndash;2020.</h2>
     <div class="cols">
       <div>
         <p class="stat"><span class="n">17K</span><span class="u">protest events</span></p>
@@ -213,7 +213,7 @@
         <p class="stat"><span class="n">5,146</span><span class="u">country-years · 166 countries</span></p>
       </div>
     </div>
-    <p style="text-align:center; font-size: 0.72em;">Participant brackets non-empty for 57.7% of events; remaining NAs preserved, not imputed. V-Dem polyarchy joined at 99.3% coverage; Polity 5 at 83.4%.</p>
+    <p style="text-align:center; font-size: 0.72em;">Mass Mobilization participant-size brackets are populated for 57.7% of events; the remaining 42.3% are kept as missing rather than imputed. V-Dem polyarchy is joined at 99.3% country-year coverage; Polity&nbsp;5 at 83.4%.</p>
   </section>
 
   <!-- 8. Time series — corrected -->
@@ -221,7 +221,7 @@
     <p class="label">Mobilisation Mix by Year</p>
     <h2>Mean nonviolent share fluctuates in the 2000s, declines sharply after 2010, and collapses in 2020.</h2>
     <img src="output/figures/slides/a_mm_timeseries.png" alt="Global mean nonviolent share 1990-2020">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Global mean country-year share of nonviolent protest hovers 0.55–0.65 through the 1990s and 2000s, then steps down to ~0.45 in the early 2010s (Arab Spring / Syria contamination), partially recovers, and collapses to ~0.25 in 2020. The share is <em>not</em> monotonic. This is part of why we include a drop-arab-spring robustness cell in the multiverse.</p>
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Global mean country-year share of nonviolent protest hovers between 0.55 and 0.65 through the 1990s and 2000s, steps down to roughly 0.45 in the early 2010s as the Arab Spring and the Syrian civil war push the violent share up, partially recovers, and collapses to roughly 0.25 in 2020. The share is <em>not</em> monotonic. This is one reason the specification curve includes a drop-Arab-Spring sample-window cell.</p>
   </section>
 
   <!-- 9. Choropleth -->
@@ -245,7 +245,7 @@
     <p class="label">Design</p>
     <h2>Same arm-contrast estimand as A_US, at the country-year scale.</h2>
     <div class="callout">
-      <p><strong>&Delta; = ATT(nonviolent arm) &minus; ATT(violent arm)</strong> on V-Dem polyarchy. Treatment per arm: first year a country crosses the 90th percentile of nonviolent (or violent) per-capita protest intensity. Country and year fixed effects absorb stable regime-level differences and global shocks.</p>
+      <p><strong>&Delta; = ATT(nonviolent arm) &minus; ATT(violent arm)</strong> on V-Dem polyarchy. Each country-year gets two intensity scores (nonviolent share &times; mean participants and the violent analog); a country enters the nonviolent arm in the first year its nonviolent intensity crosses the 90th percentile of the pooled positive distribution, and the violent arm symmetrically. Country and year fixed effects absorb stable regime-level differences and common global shocks.</p>
     </div>
     <p>We run four estimators rather than one because identification in a cross-national panel rests on multiple non-nested assumptions, and we want to know which conclusions survive which assumptions.</p>
   </section>
@@ -266,8 +266,8 @@
     </div>
     <div class="cols" style="margin-top: 0.6em;">
       <div class="card">
-        <h3>Augmented Synthetic Control (multisynth)</h3>
-        <p>Ben-Michael, Feller, Rothstein (2021). Handles many treated units; ridge augmentation for donors that don't fit perfectly.</p>
+        <h3>Augmented Synthetic Control</h3>
+        <p>Ben-Michael, Feller, Rothstein (2021); we use the staggered-adoption <code>multisynth</code> implementation. Handles many treated units jointly with ridge augmentation for donors whose pre-period outcomes don't match.</p>
       </div>
       <div class="card">
         <h3>PanelMatch (Imai, Kim, Wang 2023)</h3>
@@ -297,13 +297,13 @@
     <p class="label">Four Estimators Agree</p>
     <h2>Every robust 95% interval covers zero.</h2>
     <table style="color: #c8c8d2;">
-      <tr><th style="color:#a5a7e1;">Estimator</th><th class="num" style="color:#a5a7e1;">ATT (polyarchy)</th><th class="num" style="color:#a5a7e1;">SE</th></tr>
-      <tr><td>Callaway–Sant'Anna (contrast)</td><td class="num">−0.019</td><td class="num">0.031</td></tr>
-      <tr><td>Synthetic DiD (aggregate)</td><td class="num">−0.001</td><td class="num">0.012</td></tr>
-      <tr><td>Augmented Synthetic Control</td><td class="num">+0.010</td><td class="num">0.236*</td></tr>
+      <tr><th style="color:#a5a7e1;">Estimator</th><th class="num" style="color:#a5a7e1;">ATT (polyarchy, 0–1)</th><th class="num" style="color:#a5a7e1;">SE</th></tr>
+      <tr><td>Callaway–Sant'Anna (arm contrast)</td><td class="num">−0.019</td><td class="num">0.031</td></tr>
+      <tr><td>Synthetic DiD (per-country mean)</td><td class="num">−0.001</td><td class="num">0.012</td></tr>
+      <tr><td>Augmented Synthetic Control (multisynth)</td><td class="num">+0.010</td><td class="num">0.236*</td></tr>
       <tr><td>PanelMatch (lead 4)</td><td class="num">−0.012</td><td class="num">0.008</td></tr>
     </table>
-    <p style="margin-top: 0.8em; font-size: 0.7em; color: #a5a7e1;">*augsynth wild-bootstrap SE is conservative without unit fixed effects. Nonetheless, all four point estimates are economically small (|ATT| ≤ 0.02 on a 0–1 polyarchy scale) and every 95% CI covers zero.</p>
+    <p style="margin-top: 0.8em; font-size: 0.7em; color: #a5a7e1;">*Augmented Synthetic Control's wild-bootstrap SE is deliberately conservative without unit fixed effects. All four point estimates are economically small (|ATT|&nbsp;&le;&nbsp;0.02 on the V-Dem polyarchy 0–1 scale) and every 95% CI covers zero.</p>
   </section>
 
   <!-- 15. Synthdid figure -->
@@ -318,8 +318,8 @@
   <section>
     <p class="label">Augmented Synthetic Control · Polyarchy Path</p>
     <h2>The average ATT path stays on zero from treatment through the 5-year lead.</h2>
-    <img src="output/figures/slides/a_mm_augsynth_paths-1.png" alt="augsynth ATT path">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Ridge-augmented average treatment path across all treated countries. Wild-bootstrap CI is deliberately conservative without unit fixed effects; the point estimate barely moves off zero at any lag or lead.</p>
+    <img src="output/figures/slides/a_mm_augsynth_paths-1.png" alt="Augmented Synthetic Control ATT path">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Ridge-augmented average treatment path across all treated countries; x-axis is years from each country's first nonviolent-intensity treatment year. Wild-bootstrap CI is deliberately conservative without unit fixed effects; the point estimate barely moves off zero at any lag or lead.</p>
   </section>
 
   <!-- 17. Chenoweth-Stephan replication — payoff slide -->

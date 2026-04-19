@@ -100,13 +100,13 @@ finds only \MMCSRepViolentN{} violent-maximalist country-years against
 gap of $\MMCSRepHeadlineGap{}$ (SE~$\MMCSRepHeadlineSE{}$).
 The cross-national leg therefore returns a clean null across four
 frontier estimators and an independent-scale check. It is the companion
-to our U.S. county-year study (A\_US), where the same design on local
+to our U.S. county-year study, where the same design on local
 public-safety spending likewise failed to reject the Intensity
 Equivalence null. The two-paper headline is simple:
 \emph{once the Nonviolence Premium is estimated as a fixed-effects
-arm contrast at the county (A\_US) or country (A\_MM) scale---not as
-a between-campaign comparison of the Chenoweth--Stephan kind---it
-does not survive at either scale.}
+arm contrast at the county or country scale---not as a between-campaign
+comparison of the Chenoweth--Stephan kind---it does not survive at
+either scale.}
 \end{abstract}
 
 \section{Introduction}
@@ -179,12 +179,12 @@ post-treatment polyarchy gap of $\MMCSRepHeadlineGap{}$
 Intensity-Equivalence null.
 
 The cross-national result, read alongside our U.S. county-year
-companion (A\_US), tells a more cautious two-scale story than the
-movement literature currently provides. Once the Nonviolence Premium
-is estimated as a fixed-effects arm contrast at the county (A\_US) or
-country (A\_MM) scale---rather than as a between-campaign comparison
-of the Chenoweth--Stephan kind---the premium shrinks to zero at both
-scales. The 3.5\% cliff may reflect selection of maximalist cases
+companion, tells a more cautious two-scale story than the movement
+literature currently provides. Once the Nonviolence Premium is
+estimated as a fixed-effects arm contrast at the county or country
+scale---rather than as a between-campaign comparison of the
+Chenoweth--Stephan kind---the premium shrinks to zero at both
+scales.
 rather than a stable dose-response relationship on electoral
 democracy. We stress that \emph{within-unit} here means
 within-country variation over time with country and year fixed
@@ -228,17 +228,22 @@ anti-government protest events across \MMPanelNCountries{} countries,
 participant-bracket field, and seven state-response codes. We
 aggregate the event record to country-year and balance on the
 (country, year) grid, yielding a \MMPanelNCountryYear-row panel that
-includes never-treated countries as controls. We honestly preserve the
-$100-\MMPanelPctWithBracket\% = \MMPanelMeanShareNV{}$-incomplete
-participant-bracket column as NA for country-years with no reported
-bracket, rather than imputing a mean; this is a material design choice
-and flagged in \texttt{MEMORY.md}. V-Dem v14 polyarchy
+includes never-treated countries as controls. Participant brackets
+are populated for \MMPanelPctWithBracket\% of events; the remaining
+42.3\% are kept as missing rather than imputed for a country-year
+mean, a material design choice we document in the supplementary
+materials. V-Dem v14 polyarchy
 \cite{coppedge2024vdem} is joined at \MMVdemPctPolyarchy\% coverage;
 Polity~V \cite{marshall2020polity} at \MMPolityPctNonMiss\%.
 
-Figure~\ref{fig:mm_timeseries} plots the annual mean country-year share
-of nonviolent protest, which climbs from $\sim$0.55 in 1990 to a
-plateau around $0.6$ in the 2010s. Figure~\ref{fig:mm_choropleth} shows
+Figure~\ref{fig:mm_timeseries} plots the annual mean country-year
+share of nonviolent protest. The series fluctuates between roughly
+0.55 and 0.65 through the 1990s and 2000s, declines to about 0.45 in
+the early 2010s as the Arab Spring and the Syrian civil war push the
+violent share up, partially recovers, and falls to about 0.25 in 2020.
+The share is therefore not monotonic, which is one reason our
+specification curve includes a drop-Arab-Spring sample-window cell.
+Figure~\ref{fig:mm_choropleth} shows
 the cumulative country-level nonviolent share;
 Figure~\ref{fig:mm_vdem_paths} shows V-Dem polyarchy trajectories
 split by nonviolent-share tercile.
@@ -266,23 +271,26 @@ split by nonviolent-share tercile.
   \label{fig:mm_vdem_paths}
 \end{figure}
 
-Outcomes used in the paper: V-Dem polyarchy, liberal democracy
-(\texttt{v2x\_libdem}), participatory democracy
-(\texttt{v2x\_partipdem}), Polity2 (\texttt{polity2}), and World Bank
-WDI health and education spending (\% GDP). Archigos/REIGN
-executive-turnover data were not available for this revision; that
-outcome is dropped from the headline stack and flagged as a follow-up
-target.
+Outcomes used in the paper: the V-Dem electoral-democracy index
+(polyarchy), the liberal-democracy index, the participatory-democracy
+index, the Polity~5 combined regime score, and World Bank World
+Development Indicators (WDI) health and education spending as a
+share of GDP. Executive-turnover data from the Archigos and REIGN
+leader datasets are not yet wired into our pipeline and are deferred
+to a follow-up.
 
 \section{Design}
 \label{sec:design_mm}
-\paragraph{Violence measures.} We operationalise violence three ways:
-the Mass Mobilization \texttt{protesterviolence} flag
-(\emph{share\_nv}, the primary), a state-response-weighted measure that
-counts a protest as effectively violent if the state's response was
-lethal (\emph{share\_nv\_sr}), and an event-severity-weighted variant
-(\emph{share\_nv\_es}). The three variants are reported as spec-curve
-inputs in Section~\ref{sec:results_mm}.
+\paragraph{Violence measures.} We operationalise the share of
+nonviolent protest in three ways. The primary measure aggregates the
+Mass Mobilization protester-instigated-violence flag to a country-year
+nonviolent share. The state-response-weighted variant additionally
+counts a protest as effectively violent if the state's response
+involved killings or shootings, capturing situations in which the
+repertoire of repression dominates protester intent. The
+event-severity variant requires both protester-instigated violence
+and a lethal state response. All three enter the specification curve
+in Section~\ref{sec:results_mm}.
 
 \paragraph{Treatment assignment.} Per violence measure, we compute
 country-year \emph{intensity} as $\text{share} \times
@@ -293,15 +301,19 @@ positive distribution, and symmetrically for the violent arm.
 
 \paragraph{Estimators.} We run four estimators on each
 (outcome, arm) pair. Callaway--Sant'Anna \cite{callaway2021} is the
-primary, estimated with an outcome-regression adjustment to avoid the
-double-robust segfault that afflicts the country-year panel.
-Synthetic DiD \cite{arkhangelsky2021} is run per treated country
-against the never-treated donor pool and aggregated via an IID
-across-country SE; augmented synthetic control
-\cite{benmichael2021} fits \texttt{multisynth} with ridge augmentation
-and conservative wild-bootstrap SEs; PanelMatch \cite{imai2023} is run
-with lag~$=4$, Mahalanobis refinement, and size-match~$=5$ over
-horizons 0--4. Standard errors are clustered at the country.
+primary; we use its outcome-regression specification because the
+doubly-robust specification fails to converge on the country-year
+panel. Synthetic DiD \cite{arkhangelsky2021} is run per treated
+country against the never-treated donor pool and aggregated via a
+cross-country mean with an IID standard error. Augmented synthetic
+control \cite{benmichael2021} fits the staggered-adoption
+\texttt{multisynth} estimator with ridge augmentation and a
+conservative wild-bootstrap standard error. PanelMatch
+\cite{imai2023} is run with a four-period lag, Mahalanobis-distance
+refinement on those four lags of the outcome, a maximum match-set
+size of five donor country-years per treated case, and ATT
+estimation over horizons 0--4. Inferential standard errors are
+clustered at the country level.
 
 \paragraph{Headline estimand.} The arm contrast
 $\widehat{\Delta}=\widehat{\mathrm{ATT}}_{\text{nv}}
@@ -310,10 +322,10 @@ independent-arm variance approximation
 $\widehat{\mathrm{SE}}(\widehat{\Delta})=
 \sqrt{\widehat{\mathrm{SE}}_{\text{nv}}^{2}
 +\widehat{\mathrm{SE}}_{\text{v}}^{2}}$.
-The A\_MM treated sets are partially overlapping
-($\MMCSTreatedOverlap{}$ of $\MMCSTreatedV{}$ violent-arm countries are
-also in the nonviolent arm); this means the independent-arm SE is a
-lower bound on the true contrast SE.
+The two treated sets overlap partially ($\MMCSTreatedOverlap{}$ of
+the $\MMCSTreatedV{}$ violent-arm countries also enter the nonviolent
+arm), which means this independent-arm SE is a lower bound on the
+true contrast SE.
 
 \section{Results}
 \label{sec:results_mm}
@@ -325,7 +337,8 @@ overlap of $\MMCSTreatedOverlap{}$. Unlike the U.S.~county-year case,
 where the violent arm was dominated by a single year (2020), the
 Mass Mobilization violent arm spreads across the full
 \MMPanelYearRange{} window; the design therefore does not carry the
-same single-year fiscal-shock confounder that affected A\_US.
+same single-year fiscal-shock confounder that affected the U.S.
+companion paper.
 
 \subsection{Headline estimate}
 The headline arm contrast on V-Dem polyarchy is
@@ -397,8 +410,8 @@ scatters tightly around zero.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.95\linewidth]{a_mm_multiverse.pdf}
-  \caption{Specification curve for the A\_MM arm contrast on V-Dem
-           polyarchy, $\MMMVNSpecs$ spec cells.}
+  \caption{Specification curve for the cross-national arm contrast on
+           V-Dem polyarchy across $\MMMVNSpecs{}$ specification cells.}
   \label{fig:mm_multiverse}
 \end{figure}
 
@@ -437,8 +450,8 @@ result is Intensity Equivalence: within-country, nonviolent and
 violent mobilisation move electoral democracy at statistically
 indistinguishable rates.
 
-Read alongside the U.S.~county-year companion paper (A\_US),
-a sharper two-scale pattern emerges. In the U.S. local-government
+Read alongside the U.S.~county-year companion paper,
+a sharper two-scale pattern emerges.
 setting, the arm contrast on public-safety spending was
 sign-consistent with Violence Backlash but overwhelmed by a
 2020-dominated violent-arm cohort contaminated by American Rescue
@@ -476,13 +489,13 @@ dataset.
 Follow-up work will (i) wire up the Archigos/REIGN turnover outcome
 once the Dataverse download is scripted, (ii) expand the
 specification curve from \MMMVNSpecs{} to a target of 480 cells to
-match the A\_US spec density, and (iii) run the A\_US--A\_MM
-meta-analysis formally rather than in the joint discussion here. None
-of that is likely to overturn the two-paper headline: \emph{once the
-Nonviolence Premium is estimated as a fixed-effects arm contrast at
-the county (A\_US) or country (A\_MM) scale---not as a between-campaign
-comparison of the Chenoweth--Stephan kind---it does not survive at
-either scale.}
+match the U.S. county-year companion's spec density, and (iii) run
+the two-scale meta-analysis formally rather than in the joint
+discussion here. None of that is likely to overturn the two-paper
+headline: \emph{once the Nonviolence Premium is estimated as a
+fixed-effects arm contrast at the county or country scale---not as a
+between-campaign comparison of the Chenoweth--Stephan kind---it does
+not survive at either scale.}
 
 \newpage
 \bibliographystyle{apacite}

@@ -174,7 +174,7 @@
   <!-- 4. Hypotheses -->
   <section>
     <p class="label">Three Competing Claims</p>
-    <h2>Each maps to a different sign on the arm-contrast ATT.</h2>
+    <h2>Each maps to a different sign on the within-county difference between the nonviolent and violent treatment arms.</h2>
     <div class="cols">
       <div class="card">
         <h3>Nonviolence Premium</h3>
@@ -229,10 +229,10 @@
         <p class="stat"><span class="n">212K</span><span class="u">CCC protest events</span></p>
       </div>
       <div>
-        <p class="stat"><span class="n">9 + 1</span><span class="u">CoG spending categories + MPV killings</span></p>
+        <p class="stat"><span class="n">10</span><span class="u">outcomes: 9 spending + 1 policing</span></p>
       </div>
     </div>
-    <p style="text-align:center; font-size: 0.75em;">Each county-year gets an event count, a total crowd-size estimate (imputed for ~60% of events that have no raw count), and three violence flags: any property damage, any arrests, any protester-injury. Spending outcomes are per-capita US dollars; MPV killings per 100,000 residents.</p>
+    <p style="text-align:center; font-size: 0.75em;">Each county-year gets an event count, a total crowd-size estimate (imputed for ~60% of events that have no raw count), and three violence flags: any property damage, any arrests, any protester-instigated injury. Outcomes: nine spending categories from the Census of Governments (CoG) Annual Survey of State and Local Government Finances &mdash; public safety, police, corrections, fire, highways, health, welfare, parks-recreation, education &mdash; plus officer-involved killings from Mapping Police Violence (MPV). Spending outcomes are per-capita US dollars; MPV killings are per 100,000 residents.</p>
   </section>
 
   <!-- 8. Intensity time-series (accurate description) -->
@@ -240,15 +240,15 @@
     <p class="label">Protest Intensity by Year</p>
     <h2>Nonviolent intensity is an order of magnitude larger than violent intensity in every year.</h2>
     <img src="output/figures/slides/a_us_timeseries.png" alt="Annual mean nonviolent vs violent per-capita protest intensity">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Mean county-year nonviolent participation (% of pop) fluctuates 0.8–2.0 across 2017–2023; violent participation stays below 0.1. The violent arm is rare enough that extracting a treatment signal from it is hard at any scale.</p>
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Y-axis is mean per-capita participation across counties, expressed as a percentage of county population. Nonviolent participation oscillates between 0.8% and 2.0% across 2017–2023; violent participation stays below 0.1% in every year. The violent column is rare enough that extracting a treatment signal from it is hard at any scale.</p>
   </section>
 
   <!-- 9. Intensity distribution -->
   <section>
     <p class="label">Distribution of Intensity</p>
     <h2>The county-year intensity distribution is heavily right-skewed.</h2>
-    <img src="output/figures/slides/a_us_intensity_dist.png" alt="Histogram of log1p(% of pop participating)">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Most county-years sit near log1p ≈ 0.5 (≈0.7% of population participating at least once), with a long right tail out to &gt;5% of population. The 90th percentile of the nonzero distribution (our treatment cutoff) lands near log1p = 1.8.</p>
+    <img src="output/figures/slides/a_us_intensity_dist.png" alt="Histogram of log(1 + protest participation)">
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">X-axis is the natural log of one plus per-capita participation (in % of population), a standard transformation that handles zeros. Most county-years sit near log(1+x) ≈ 0.5, equivalent to about 0.7% of population participating at least once. The 90th-percentile cutoff that defines our treatment lands near log(1+x) = 1.8 (about 5% of population participating).</p>
   </section>
 
   <!-- 10. Treatment assignment -->
@@ -268,7 +268,7 @@
     <div class="cols">
       <div class="card">
         <h3>The TWFE problem</h3>
-        <p>A classical two-way fixed-effects regression of spending on a pulse indicator implicitly uses already-treated counties as controls for later-treated counties. When treatment effects are heterogeneous across cohorts, that contamination can flip the sign of the average effect (Goodman-Bacon 2021; de Chaisemartin &amp; D'Haultfœuille 2020).</p>
+        <p>A classical two-way-fixed-effects (TWFE) regression of spending on a binary treatment indicator implicitly uses already-treated counties as controls for later-treated counties. When treatment effects are heterogeneous across cohorts, that contamination can flip the sign of the average effect (Goodman-Bacon 2021; de Chaisemartin &amp; D'Haultfœuille 2020).</p>
       </div>
       <div class="card">
         <h3>The CS fix</h3>
@@ -323,7 +323,7 @@
     <p class="label">Nonviolent-Arm Event Study</p>
     <h2>Post-period drifts upward; pre-period dips slightly negative; CIs cover zero at every horizon.</h2>
     <img src="output/figures/slides/a_us_cs_event_study-1.png" alt="CS event study for spend_public_safety, nonviolent arm">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Not a clean parallel-trend pre-period — the e=−3, −2, −1 coefficients all dip below zero — but no single horizon is individually significant. This motivates the HonestDiD sensitivity check next.</p>
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Y-axis is the cohort-aggregated treatment effect at each event time; x-axis is years from treatment (event time = 0 is the year a county crosses the nonviolent-intensity threshold). Pre-treatment coefficients at event times −3, −2, −1 all dip slightly below zero, raising a parallel-trends concern; no single horizon is individually significant. This motivates the HonestDiD sensitivity check on the next slide.</p>
   </section>
 
   <!-- 16. Why HonestDiD -->
@@ -356,7 +356,7 @@
     <p class="label">Specification Curve · 336 Cells</p>
     <h2>91.3% of CIs cover zero. Median point estimate is mildly backlash-signed.</h2>
     <img src="output/figures/slides/a_us_multiverse-1.png" alt="U.S. multiverse specification curve">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Red = 95% CI excludes zero on the backlash side; green = excludes zero on the premium side (none); grey = covers zero. The red cluster on the left tail is concentrated in the strict-violence-definition / drop-2020 specs where the violent arm shrinks below useful N.</p>
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Each dot is one of 336 design choices; the vertical bar is its 95% CI. Red = 95% CI excludes zero on the backlash side; green = excludes zero on the premium side (none observed); grey = covers zero. The red cluster on the left tail is concentrated in the strict-violence-definition / drop-2020 cells, where the violent arm shrinks to too few treated counties for a stable estimate.</p>
   </section>
 
   <!-- 20. Placebo -->
@@ -381,7 +381,7 @@
     <p class="label">Era Heterogeneity</p>
     <h2>Split the sample: both halves straddle zero.</h2>
     <img src="output/figures/slides/a_us_het_era-1.png" alt="Era heterogeneity plot">
-    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Pre-BLM 2017–2019 ATT = $793 (SE $2,980); BLM-era 2020–2023 ATT = $2,160 (SE $2,751). Larger point estimate in the latter, consistent with the 2020 identification concentration. Neither significant.</p>
+    <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">2017–2019 (pre-Black-Lives-Matter resurgence) ATT on per-capita public-safety spending = $793 (SE $2,980); 2020–2023 ATT = $2,160 (SE $2,751). The point estimate is larger in the 2020–2023 split, consistent with the diagnostic that the 2020 cohort drives identification, but neither sub-sample crosses conventional significance.</p>
   </section>
 
   <!-- 22. Reading the result -->

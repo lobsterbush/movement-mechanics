@@ -171,8 +171,7 @@
     <h1>The Nonviolence Premium</h1>
     <p class="subtitle">A two-paper series on whether nonviolent protest moves policy more than violent protest does</p>
     <p class="lede">
-      Two companion papers ask the same question at two scales — U.S. counties and country-years — using the same arm-contrast estimand and modern staggered difference-in-differences.
-      The combined finding: once nonviolence is treated as a within-unit treatment rather than a campaign-type description, the premium does not survive.
+      Two companion papers, by Charles Crabtree and John B. Holbein, ask the same question at two scales &mdash; U.S. counties (2017&ndash;2023) and country-years (1990&ndash;2020) &mdash; using the same arm-contrast difference-in-differences estimator. The combined finding: once the Nonviolence Premium is estimated as a fixed-effects arm contrast at the county or country scale, rather than as a between-campaign comparison of the kind Chenoweth and Stephan (2011) pioneered, it does not survive at either scale.
     </p>
   </header>
 
@@ -180,10 +179,10 @@
   <div class="grid">
 
     <article class="card">
-      <p class="tag">A_US · U.S. county-year</p>
+      <p class="tag">Paper 1 · U.S. county-year</p>
       <h3>The Nonviolence Premium: Local Policy Response in the United States, 2017–2023</h3>
       <p class="blurb">
-        47,859 county-years from the Crowd Counting Consortium, mapped to Census of Governments per-capita public-safety spending. Headline arm contrast = <strong>−$10,588 per capita</strong> (SE $7,843, p = 0.18) — backlash-signed but insignificant, and identified by a 2020 cohort whose budget data is contaminated by ARPA.
+        47,859 county-years from the Crowd Counting Consortium (CCC), mapped to Census of Governments per-capita public-safety spending. Headline arm contrast = <strong>−$10,588 per capita</strong> (SE $7,843; p = 0.177) &mdash; backlash-signed but statistically indistinguishable from zero, and identified by a 2020 cohort whose budget data is contaminated by American Rescue Plan public-safety transfers.
       </p>
       <div class="links">
         <a href="slides_a_us.html">Slides (HTML)</a>
@@ -192,10 +191,10 @@
     </article>
 
     <article class="card">
-      <p class="tag">A_MM · Cross-national</p>
+      <p class="tag">Paper 2 · Cross-national</p>
       <h3>The Nonviolence Premium: Evidence from 166 Countries, 1990–2020</h3>
       <p class="blurb">
-        Mass Mobilization v5.1 protest events joined to V-Dem polyarchy, Polity V, WDI fiscal outcomes. Four estimators — Callaway–Sant'Anna, synthetic DiD, augmented synthetic control, PanelMatch — all return <strong>statistically zero</strong> contrasts. The Chenoweth–Stephan 3.5% cliff is built on only 4 violent-maximalist country-years vs 30 nonviolent ones.
+        Mass Mobilization v5.1 protest events joined to V-Dem polyarchy, Polity V regime indicators, and World Bank WDI fiscal outcomes. Four difference-in-differences estimators &mdash; Callaway–Sant'Anna, synthetic DiD, augmented synthetic control, and PanelMatch &mdash; all return <strong>statistically zero</strong> contrasts. The Chenoweth–Stephan 3.5% cliff rests on only 4 violent-maximalist country-years against 30 nonviolent ones.
       </p>
       <div class="links">
         <a href="slides_a_mm.html">Slides (HTML)</a>
@@ -206,7 +205,7 @@
   </div>
 
   <div class="stack">
-    <p><strong>Two-paper headline.</strong> <em>Once nonviolence is treated as a within-unit treatment effect rather than a campaign-type description, the Nonviolence Premium does not survive at either scale.</em> The Intensity Equivalence null is the most parsimonious conclusion across both papers. Headline numbers are reproducible end-to-end from <code>data/raw/</code> via the numbered scripts in <code>R/</code>.</p>
+    <p><strong>Two-paper headline.</strong> <em>Once the Nonviolence Premium is estimated as a fixed-effects arm contrast at the county or country scale &mdash; not as a between-campaign comparison of the Chenoweth–Stephan kind &mdash; it does not survive at either scale.</em> The Intensity-Equivalence null (no difference between nonviolent and violent arms) is the most parsimonious reading across both papers. Every headline number is reproducible end-to-end from <code>data/raw/</code> via the numbered scripts in <code>R/</code>.</p>
   </div>
 
   <h2>Authors</h2>

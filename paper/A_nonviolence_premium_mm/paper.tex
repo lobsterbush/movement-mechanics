@@ -110,14 +110,23 @@ either scale.}
 \end{abstract}
 
 \section{Introduction}
-Does the nonviolence premium---the within-unit difference in policy or
-regime response between nonviolent and violent protest---travel across
+Does the nonviolence premium---the difference in policy or regime
+response between nonviolent and violent protest, net of stable
+between-country differences and common shocks---travel across
 institutional contexts, and how much of Chenoweth and Stephan's
 \cite{chenoweth2011} headline 3.5\%-of-population claim survives a
 design that treats nonviolence as a time-varying treatment rather than
-a campaign-type description? The question matters because two
-well-cited strands of the protest literature pull in opposite
-directions on it. Chenoweth and Stephan's NAVCO work
+a campaign-type description? We flag at the outset that the design
+does \emph{not} exploit within-country variation between the two arms:
+countries rarely switch tactical character across the panel, so we
+cannot compare one country's nonviolent years to its own violent
+years. Instead we identify two arm-specific ATTs from within-country
+variation over time (each arm against never-treated controls, with
+country and year fixed effects) and report their difference as a
+between-arm contrast.
+
+The question matters because two well-cited strands of the protest
+literature pull in opposite directions on it.
 \cite{chenoweth2011,chenoweth2019lessons}, Wasow's
 \cite{wasow2020agenda} reading of the 1960s U.S. civil-rights
 movement, and Mazumder's \cite{mazumder2018persistent} follow-on
@@ -186,12 +195,17 @@ scale---rather than as a between-campaign comparison of the
 Chenoweth--Stephan kind---the premium shrinks to zero at both
 scales. The 3.5\% cliff may reflect selection of maximalist cases
 rather than a stable dose-response relationship on electoral
-democracy. We stress that \emph{within-unit} here means
-within-country variation over time with country and year fixed
-effects, not within-campaign tactical switching; we do not follow
-single campaigns as they shift from nonviolent to violent tactics,
-because that is rare in the data and would require a different
-identification strategy.
+democracy. We stress that \emph{within-unit} in our design refers only
+to within-country variation \emph{over time}: each arm's ATT is
+identified by comparing treated countries to never-treated countries
+with country and year fixed effects. The design does \emph{not}
+exploit within-country variation between the nonviolent and violent
+arms---countries rarely switch tactical character across the panel,
+and even the $\MMCSTreatedOverlap{}$ countries that enter both arms
+have their two ATTs estimated separately, not by intra-country
+comparison. The headline contrast is therefore a \emph{between-arm}
+contrast of two separately-identified within-country ATTs, not a
+within-unit treatment contrast.
 
 \section{Theory}
 A simple model of the executive's response to mobilisation gives each
@@ -322,6 +336,10 @@ independent-arm variance approximation
 $\widehat{\mathrm{SE}}(\widehat{\Delta})=
 \sqrt{\widehat{\mathrm{SE}}_{\text{nv}}^{2}
 +\widehat{\mathrm{SE}}_{\text{v}}^{2}}$.
+Each $\widehat{\mathrm{ATT}}$ is identified from within-country
+variation over time against never-treated controls; the contrast
+differences the two arm-specific ATTs and is therefore a
+\emph{between-arm} quantity rather than a within-unit contrast.
 The two treated sets overlap partially ($\MMCSTreatedOverlap{}$ of
 the $\MMCSTreatedV{}$ violent-arm countries also enter the nonviolent
 arm), which means this independent-arm SE is a lower bound on the

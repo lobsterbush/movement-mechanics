@@ -154,7 +154,7 @@
       </div>
     </div>
     <div class="callout" style="margin-top: 0.7em;">
-      <p><strong>"Within-unit" = within-country over time.</strong> We do not follow single campaigns through tactical shifts; that would require a different identification strategy. We compare the post-treatment trajectory of a country whose nonviolent intensity crossed the 90th-percentile threshold in some year to the trajectory of countries that never crossed it, and mirror that comparison for the violent arm.</p>
+      <p><strong>"Within-unit" here means within-country over time, nothing stronger.</strong> We compare the post-treatment trajectory of a country whose nonviolent intensity crossed the 90th-percentile threshold to the trajectory of countries that never crossed it, and mirror that comparison for the violent arm. We do <em>not</em> exploit within-country variation between the nonviolent and violent arms — countries rarely switch tactical character across the panel, and even the countries that enter both arms contribute to the two ATTs separately. The headline Δ is a between-arm difference of two within-country ATTs, not a within-country treatment contrast.</p>
     </div>
   </section>
 
@@ -243,9 +243,9 @@
   <!-- 11. Design -->
   <section>
     <p class="label">Design</p>
-    <h2>Same arm-contrast estimand as A_US, at the country-year scale.</h2>
+    <h2>A between-arm contrast of two separately-identified within-country ATTs, at the country-year scale.</h2>
     <div class="callout">
-      <p><strong>&Delta; = ATT(nonviolent arm) &minus; ATT(violent arm)</strong> on V-Dem polyarchy. Each country-year gets two intensity scores (nonviolent share &times; mean participants and the violent analog); a country enters the nonviolent arm in the first year its nonviolent intensity crosses the 90th percentile of the pooled positive distribution, and the violent arm symmetrically. Country and year fixed effects absorb stable regime-level differences and common global shocks.</p>
+      <p><strong>&Delta; = ATT(nonviolent arm) &minus; ATT(violent arm)</strong> on V-Dem polyarchy. Each country-year gets two intensity scores (nonviolent share &times; mean participants and the violent analog); a country enters the nonviolent arm in the first year its nonviolent intensity crosses the 90th percentile of the pooled positive distribution, and the violent arm symmetrically. Each arm's ATT is identified from within-country variation over time against never-treated controls, with country and year fixed effects absorbing stable regime-level differences and common global shocks. Δ differences the two arm-specific ATTs; it is a between-arm, not within-country, comparison.</p>
     </div>
     <p>We run four estimators rather than one because identification in a cross-national panel rests on multiple non-nested assumptions, and we want to know which conclusions survive which assumptions.</p>
   </section>

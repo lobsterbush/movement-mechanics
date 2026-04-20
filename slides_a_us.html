@@ -174,11 +174,11 @@
   <!-- 4. Hypotheses -->
   <section>
     <p class="label">Three Competing Claims</p>
-    <h2>Each maps to a different sign on the within-county difference between the nonviolent and violent treatment arms.</h2>
+    <h2>Each maps to a different sign on the between-arm contrast of two separately-identified within-county ATTs.</h2>
     <div class="cols">
       <div class="card">
         <h3>Nonviolence Premium</h3>
-        <p>The within-county effect of a nonviolent-dominated year on local public-safety spending is <em>larger</em> than the within-county effect of a violent-dominated year of comparable scale. This is the civil-resistance frame.</p>
+        <p>The ATT of a high-nonviolent-intensity year (estimated on nonviolent-arm counties against never-treated controls) exceeds the ATT of a high-violent-intensity year (estimated separately on violent-arm counties): the arm contrast Δ = ATT<sub>nv</sub> − ATT<sub>v</sub> &gt; 0. This is the civil-resistance frame.</p>
       </div>
       <div class="card">
         <h3>Intensity Equivalence</h3>
@@ -187,17 +187,18 @@
     </div>
     <div class="card" style="margin-top: 0.7em;">
       <h3>Violence Backlash</h3>
-      <p>The within-county effect of a violent-dominated year is <em>larger</em> than the within-county effect of a nonviolent-dominated year of comparable scale &mdash; the mechanism Enos et al. (2019) and Collins &amp; Margo (2007) rely on.</p>
+      <p>The violent-arm ATT exceeds the nonviolent-arm ATT: Δ &lt; 0 &mdash; the mechanism Enos et al. (2019) and Collins &amp; Margo (2007) rely on.</p>
     </div>
+    <p style="margin-top: 0.7em; font-size: 0.7em; color: var(--text-muted);">Each arm's ATT is a within-county over-time effect against never-treated controls. The contrast differences the two arms; it is <em>not</em> a within-county comparison of the same county's nonviolent and violent years, because counties rarely switch tactical character during the panel.</p>
   </section>
 
   <!-- 5. Why this design at all -->
   <section>
     <p class="label">Why We Need a New Design</p>
-    <h2>The 3.5% cliff is a between-campaign fact. It doesn't test the within-unit mechanism.</h2>
+    <h2>The 3.5% cliff is a between-campaign fact. A fixed-effects arm contrast is a cleaner test of the same theoretical claim.</h2>
     <p>Chenoweth and Stephan's evidence classifies whole campaigns as nonviolent or violent and compares success rates across them. That is a powerful descriptive claim, but it cannot separate the tactical-character effect from the selection effect: campaigns that go violent are systematically different in country, era, state capacity, and coalition composition from campaigns that stay nonviolent.</p>
     <div class="callout">
-      <p><strong>Our question is different.</strong> Holding a county (and the year) fixed, does a nonviolent-dominated protest year move local fiscal outcomes differently than a violent-dominated one? That is the within-unit arm contrast that a fixed-effects DiD design identifies cleanly &mdash; and that a between-campaign comparison cannot.</p>
+      <p><strong>Our question is different.</strong> We estimate each arm's ATT from within-county variation over time (treated counties against never-treated controls, with county and year fixed effects), then difference the two arm-specific ATTs. The headline estimand is this <em>between-arm</em> contrast; the design does not (and cannot, given the data) exploit within-county variation between the nonviolent and violent arms themselves, because counties rarely switch tactical character across the panel.</p>
     </div>
   </section>
 
@@ -216,7 +217,7 @@
       </div>
     </div>
     <div class="callout" style="margin-top: 0.7em;">
-      <p><strong>"Within-unit" = within-county over time.</strong> We do not follow individual campaigns as they shift tactics; that would require a different identification strategy entirely. We compare the post-treatment trajectory of a county whose nonviolent intensity crossed the threshold to the trajectory of counties that never crossed any threshold, and mirror that comparison for the violent arm.</p>
+      <p><strong>"Within-unit" here means within-county over time, nothing stronger.</strong> We compare the post-treatment trajectory of a county whose nonviolent intensity crossed the threshold to the trajectory of counties that never crossed any threshold, and mirror that comparison for the violent arm. We do <em>not</em> exploit within-county variation between the nonviolent and violent arms — counties rarely switch tactical character during the panel, and even the counties that enter both arms contribute to the two ATTs separately, not to an intra-county arm contrast. The headline Δ is therefore a between-arm difference of two within-county ATTs.</p>
     </div>
   </section>
 
@@ -280,11 +281,11 @@
   <!-- 12. The estimand -->
   <section>
     <p class="label">The Headline Estimand</p>
-    <h2>The arm contrast, not either ATT alone.</h2>
+    <h2>A between-arm contrast of two separately-identified within-county ATTs.</h2>
     <div class="callout">
-      <p><strong>&Delta; = ATT(nonviolent arm) &minus; ATT(violent arm)</strong> on Census-of-Governments per-capita public-safety spending. The standard error uses an independent-arm approximation that adds the per-arm sampling variances; this is a lower bound on the true SE when the treated sets overlap (reported below).</p>
+      <p><strong>&Delta; = ATT(nonviolent arm) &minus; ATT(violent arm)</strong> on Census-of-Governments per-capita public-safety spending. Each ATT is identified from within-county variation over time against never-treated controls; Δ differences the two arm-specific ATTs. The standard error uses an independent-arm approximation that adds the per-arm sampling variances; this is a lower bound on the true SE when the treated sets overlap (reported below).</p>
     </div>
-    <p>Reporting the <em>contrast</em> — not the single-arm ATT — is the design choice that lets us speak directly to the Nonviolence Premium. A significant positive ATT on nonviolent protests alone would not falsify Intensity Equivalence; the contrast would.</p>
+    <p>Reporting the <em>contrast</em> — not the single-arm ATT — is the design choice that lets us speak directly to the Nonviolence Premium. A significant positive ATT on nonviolent protests alone would not falsify Intensity Equivalence; the contrast would. We flag explicitly that the design does <em>not</em> identify a within-county comparison of nonviolent and violent years, because counties rarely switch tactical character across the panel.</p>
   </section>
 
   <!-- 13. Arm diagnostics — the crucial slide -->

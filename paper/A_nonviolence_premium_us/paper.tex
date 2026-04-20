@@ -110,9 +110,17 @@ Enos, Kaufman and Sands \cite{enos2019riots}, Wasow
 documents that violent protest can move outcomes in the other direction,
 triggering electoral backlash, conservative policy swings, and durable
 property-value losses in the neighbourhoods closest to unrest. A
-\emph{nonviolence premium}---the within-unit difference in policy
-response between nonviolent and violent protest---is the estimand that
-unifies the two strands but that neither has cleanly identified.
+\emph{nonviolence premium}---the difference in policy response between
+nonviolent and violent protest, net of stable between-unit differences
+and common shocks---is the estimand that unifies the two strands but
+that neither has cleanly identified. We emphasise at the outset that
+our design does \emph{not} exploit within-unit variation between the
+two arms: counties rarely switch tactical character over the panel, so
+we cannot compare a single county's nonviolent years to its own violent
+years. Instead we identify two arm-specific ATTs from within-county
+variation over time (each arm against never-treated controls, with
+county and year fixed effects) and report their difference as a
+between-arm contrast.
 
 We pursue that estimand with the Crowd Counting Consortium (CCC) event
 catalogue \cite{fisher2019ccc}, which records \CCCNRaw{} geocoded U.S.
@@ -454,10 +462,20 @@ year in which nonviolent (or violent) per-capita intensity crosses
 the 90th percentile of its nonzero distribution; and our ATT is the
 within-county change in the outcome compared to the evolution of
 never-treated controls, with county and year fixed effects absorbing
-stable differences and common shocks. ``Within-unit'' therefore
-refers to within-county variation over time, not to within-campaign
-tactical switching, which is rare in the data and would require an
-entirely different identification strategy.
+stable differences and common shocks. Three clarifications follow
+from this unit of analysis. First, ``within-unit'' in our setting
+refers only to within-county variation \emph{over time}: the CS-DiD
+estimator identifies each arm's ATT from how treated counties evolve
+relative to never-treated counties, not from any within-county
+contrast of nonviolent and violent years. Second, we \emph{cannot}
+exploit within-county variation between the two arms, because
+counties rarely switch tactical character during the panel; even
+among the $\AUSCSTreatedOverlap{}$ counties that enter both arms, the
+nonviolent- and violent-arm ATTs are estimated separately, not by
+intra-county comparison. Third, the headline $\widehat{\Delta}$ is
+therefore a \emph{between-arm} contrast of two separately-identified
+within-county ATTs, not a within-unit treatment contrast of the kind
+a within-campaign tactical switch would deliver.
 
 Of the three hypotheses, the raw contrast is most consistent with the
 \emph{Violence Backlash} pattern: the point estimate is negative, the
@@ -494,7 +512,8 @@ panel dominated by a single high-salience year.
 
 \section{Conclusion}
 We asked whether nonviolent protests move local policy more than violent
-ones, using a within-county arm-contrast design. The honest answer in
+ones, using a between-arm contrast of two separately-identified
+within-county ATTs. The honest answer in
 this sample is that the raw estimate is in the direction of Violence
 Backlash but is not statistically distinguishable from the Intensity
 Equivalence null, and that the violent arm's identification rests on a

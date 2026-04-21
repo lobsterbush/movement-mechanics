@@ -60,7 +60,7 @@ panel <- panel %>%
     treat = as.integer(!is.na(first_year) & year >= first_year)
   ) %>% ungroup()
 
-outcomes <- c("v2x_polyarchy", "v2x_libdem")
+outcomes <- c("v2x_polyarchy", "v2x_libdem", "leader_turnover")
 
 run_multisynth <- function(yname) {
   df <- panel %>% filter(!is.na(.data[[yname]]))

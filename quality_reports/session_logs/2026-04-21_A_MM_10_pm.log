@@ -1,0 +1,16 @@
+         outcome lead          att          se
+   v2x_polyarchy    0 -0.001781485 0.003068971
+   v2x_polyarchy    1 -0.006017403 0.004335643
+   v2x_polyarchy    2 -0.001621444 0.006415849
+   v2x_polyarchy    3 -0.011869549 0.007244824
+   v2x_polyarchy    4 -0.012051598 0.008337399
+      v2x_libdem    0 -0.001432007 0.002460571
+      v2x_libdem    1 -0.004366566 0.004177131
+      v2x_libdem    2 -0.001827781 0.006787189
+      v2x_libdem    3 -0.012798531 0.007931506
+      v2x_libdem    4 -0.016387058 0.009257706
+ leader_turnover    0 -0.079696395 0.063374413
+ leader_turnover    1 -0.034069645 0.076413916
+ leader_turnover    2  0.001357581 0.069124197
+ leader_turnover    3  0.001890044 0.080879643
+ leader_turnover    4  0.007204732 0.078959279

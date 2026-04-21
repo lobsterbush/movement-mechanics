@@ -1,0 +1,136 @@
+                  country first_year           att         se
+                  Albania       1993  0.0432509859 0.12498601
+                  Algeria       2019 -0.0152871407 0.03021018
+                   Angola       2004  0.0747140853 0.08826032
+                Argentina       2015  0.0066426789 0.04071651
+                  Armenia       2018  0.3255920508 0.03057006
+                  Austria       1999 -0.0384058045 0.10288487
+               Azerbaijan         NA            NA         NA
+                  Belarus       1995 -0.3148668623 0.11910559
+                  Belgium       1993 -0.0606768265 0.12233369
+                    Benin       2010 -0.0277690232 0.07228442
+                   Bosnia         NA            NA         NA
+                 Botswana         NA            NA         NA
+                 Bulgaria         NA            NA         NA
+             Burkina Faso       2020  0.0082941625 0.02379702
+                 Cameroon         NA            NA         NA
+ Central African Republic         NA            NA         NA
+                 Colombia       2016 -0.0059543660 0.03546441
+                  Croatia         NA            NA         NA
+                   Cyprus         NA            NA         NA
+           Czech Republic       1994 -0.0591690748 0.11999424
+                  Denmark       2009 -0.0080342472 0.06565597
+       Dominican Republic       2017  0.0047020443 0.04918123
+                  Ecuador       2017  0.0804734858 0.05044022
+              El Salvador       2016 -0.0261916335 0.03419741
+                  Estonia       1993  0.1715792345 0.11140157
+                 Ethiopia       1994 -0.0304408964 0.10891009
+                   France       2010 -0.0120983612 0.06845752
+                  Germany         NA            NA         NA
+             Germany East         NA            NA         NA
+                   Greece       2000 -0.0493352862 0.11627320
+                Guatemala       2016  0.0137119833 0.04146672
+                  Hungary         NA            NA         NA
+                    Italy         NA            NA         NA
+                    Japan       2016  0.0104752972 0.03718272
+                   Jordan       2018  0.0094379961 0.02553764
+                   Latvia       1995 -0.0134236370 0.11642712
+                  Lebanon       2019 -0.0026204844 0.03109793
+                  Lesotho       2007 -0.0176360376 0.10405849
+               Luxembourg       1997 -0.0552869802 0.12852694
+                Macedonia         NA            NA         NA
+               Madagascar         NA            NA         NA
+                   Malawi       2006  0.0632161988 0.09729022
+                     Mali         NA            NA         NA
+                  Moldova       1993 -0.0125118393 0.12800717
+                 Mongolia       2019 -0.0082433890 0.03081661
+                  Morocco       2016  0.0008415165 0.04003114
+                  Myanmar       2017  0.0158660923 0.04334421
+                   Norway       1999 -0.0320748612 0.10906225
+                     Peru       2016 -0.0463227253 0.03997941
+                   Poland         NA            NA         NA
+                 Portugal       2011 -0.0169243188 0.07796271
+                  Romania       1993  0.0212491828 0.11625154
+                   Russia         NA            NA         NA
+                   Rwanda         NA            NA         NA
+                   Serbia       2018 -0.0256215650 0.02921910
+          Slovak Republic         NA            NA         NA
+                 Slovenia       2005 -0.0165285259 0.08936005
+             South Africa       2000  0.0214302744 0.11718352
+                    Spain       1993 -0.0901662230 0.11195770
+                Sri Lanka       2016  0.0719206254 0.04476031
+                   Sweden         NA            NA         NA
+                   Taiwan       2014  0.0557155386 0.08014625
+                   Turkey       2017  0.0196027538 0.03235534
+                     USSR         NA            NA         NA
+                  Ukraine       2007 -0.0570790232 0.08100755
+                    Yemen       2016 -0.0491826915 0.03038463
+               Yugoslavia       1996  0.0434614754 0.11198232
+                          reason
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+           insufficient pre/post
+                              ok
+                              ok
+                              ok
+           insufficient pre/post
+           insufficient pre/post
+           insufficient pre/post
+                              ok
+           insufficient pre/post
+           insufficient pre/post
+                              ok
+ treated dropped by completeness
+           insufficient pre/post
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+           insufficient pre/post
+           insufficient pre/post
+                              ok
+                              ok
+           insufficient pre/post
+           insufficient pre/post
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+ treated dropped by completeness
+           insufficient pre/post
+                              ok
+           insufficient pre/post
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+                              ok
+           insufficient pre/post
+                              ok
+                              ok
+           insufficient pre/post
+           insufficient pre/post
+                              ok
+ treated dropped by completeness
+                              ok
+                              ok
+                              ok
+                              ok
+           insufficient pre/post
+                              ok
+                              ok
+           insufficient pre/post
+                              ok
+                              ok
+                              ok

@@ -87,12 +87,13 @@ estimate is therefore consistent with a Violence Backlash pattern, but
 imprecisely measured and strongly confounded by the 2020 American Rescue
 Plan cycle. A Rambachan--Roth \cite{rambachan2023} sensitivity analysis
 and a \AUSMVNSpecs-cell specification curve locate the 95\% robust
-interval for the contrast around zero. Read together with the
-cross-national companion paper \cite{clark_regan_2022}, the
-two-paper headline is that \emph{once the Nonviolence Premium is
-estimated as a fixed-effects arm contrast at the county or country
-scale---not as a between-campaign comparison of the
-Chenoweth--Stephan kind---it does not survive at either scale.}
+interval for the contrast around zero. The headline takeaway is that
+\emph{once the Nonviolence Premium is estimated as a fixed-effects
+arm contrast at the county scale---not as a between-campaign
+comparison of the Chenoweth--Stephan kind---it is not statistically
+distinguishable from zero, and the violent-arm point estimate that
+would motivate a Violence Backlash reading is dominated by a
+2020-cohort confounder unrelated to protest pressure.}
 \end{abstract}
 
 \section{Introduction}
@@ -133,11 +134,7 @@ panel used in the Crabtree--Holbein fiscal-response analysis
 nonviolent and a violent arm, treat each arm with the Callaway and
 Sant'Anna \cite{callaway2021} staggered-DiD estimator, and define the
 headline test as the contrast of the two arms' ATTs on Census of
-Governments per-capita public-safety spending \cite{cog}. The
-paired cross-national companion paper uses the same estimand against
-V-Dem \cite{coppedge2024vdem} electoral-democracy outcomes on the
-Mass Mobilization panel of anti-government protests,
-1990--2020 \cite{clark_regan_2022}.
+Governments per-capita public-safety spending \cite{cog}.
 
 We consider three hypotheses:
 \begin{description}
@@ -171,12 +168,13 @@ unrelated to protest pressure. A Rambachan--Roth
 consistent with the 95\% interval covering zero. We therefore report
 the result as consistent with---but not evidence for---a Violence
 Backlash pattern, and explicitly flag the 2020 confounder as the next
-diagnostic target for a follow-up paper. The substantive headline
-that emerges from this paper and its cross-national companion is
+diagnostic target for a follow-up paper. The substantive headline is
 simple: \emph{once the Nonviolence Premium is estimated as a
-fixed-effects arm contrast at the county or country scale---not as a
-between-campaign comparison of the Chenoweth--Stephan kind---it does
-not survive at either scale.}
+fixed-effects arm contrast at the county scale---not as a
+between-campaign comparison of the Chenoweth--Stephan kind---it is
+not statistically distinguishable from zero on public-safety
+spending, and the violent-arm point estimate is dominated by a
+2020-cohort confounder unrelated to protest pressure.}
 
 \section{Theory}
 A simple model of local-government budgeting gives each hypothesis a
@@ -447,14 +445,15 @@ the shared 2020 fiscal shock.
 \end{figure}
 
 \section{Discussion}
-The single most important finding of this paper, taken together with
-the cross-national companion, is that \emph{once the Nonviolence
-Premium is estimated as a fixed-effects arm contrast at the county
-or country scale---not as a between-campaign comparison of the
-Chenoweth--Stephan kind---it does not survive at either scale}. The
-distinction between our design and Chenoweth and Stephan's
-\cite{chenoweth2011} is worth making explicit, because it determines
-what the estimand means. Chenoweth
+The single most important finding of this paper is that \emph{once
+the Nonviolence Premium is estimated as a fixed-effects arm contrast
+at the county scale---not as a between-campaign comparison of the
+Chenoweth--Stephan kind---it is not statistically distinguishable
+from zero on public-safety spending, and the violent-arm point
+estimate is dominated by a 2020-cohort confounder unrelated to
+protest pressure}. The distinction between our design and Chenoweth
+and Stephan's \cite{chenoweth2011} is worth making explicit, because
+it determines what the estimand means.
 and Stephan's unit of analysis is the \emph{campaign}: NAVCO
 classifies each campaign as nonviolent or violent as a whole, and the
 headline 3.5\%-cliff comes from comparing success rates across
@@ -495,13 +494,14 @@ raw contrast into a substantive Violence Backlash finding. The violent
 arm's identification rests on a $\AUSCSVTreatedTwentyTwenty{}$-county
 2020 cohort whose local public-safety budgets are observably
 contaminated by the American Rescue Plan's public-safety provisions.
-is therefore best read as an upper bound on what violence could plausibly
-move in the absence of confounders; the true arm contrast, net of the
-2020 fiscal stimulus, may well be smaller or even sign-flipped in
-preferred-specification robustness. The cross-national companion,
-which identifies off a 1990--2020 Mass Mobilization panel and is
-therefore not contaminated by a single-year fiscal stimulus, will be
-the cleaner adjudicator.
+The raw violent-arm ATT of \$$\AUSCSVpubSafetyATTraw{}$ per capita is
+therefore best read as an upper bound on what violence could
+plausibly move in the absence of confounders; the true arm contrast,
+net of the 2020 fiscal stimulus, may well be smaller or even
+sign-flipped in preferred-specification robustness. The cleanest
+follow-up test would drop the 2020 cohort entirely and re-estimate
+the contrast on a pre-2020 sample, or absorb ARPA transfers as a
+covariate---both are deferred to future work.
 
 In the language of McAdam \cite{mcadam1982political} and Wasow
 \cite{wasow2020agenda}, our results are consistent with a world in which
@@ -523,19 +523,19 @@ Equivalence null, and that the violent arm's identification rests on a
 are confounded by an independent policy shock. The headline contrast and
 its Rambachan--Roth sensitivity are therefore best read as an audit of
 the design rather than a test of the underlying theoretical claim.
-The two-paper takeaway, read with the Mass Mobilization companion,
-still holds here: \emph{the Nonviolence Premium does not survive
-recasting as a fixed-effects arm contrast at the county or country
-scale.}
+The takeaway is that the within-county Nonviolence Premium on local
+public-safety spending, once recast as a between-arm CS-DiD contrast,
+does not survive this seven-year panel.
 
 Follow-up work will (i) drop the 2020 cohort as the headline sample
 and report the pre-2020 / post-2020 comparison explicitly, (ii) add
 partisan-quintile cuts (using MIT Election Data and Science Lab
 precinct returns) and urban--rural cuts (using National Center for
 Health Statistics county classifications) that the current pipeline
-scaffolds but does not execute, and (iii) extend the cross-national
-companion to the full outcome stack so that a Nonviolence Premium
-claim can be tested at two scales simultaneously.
+scaffolds but does not execute, and (iii) broaden the headline
+outcome beyond public-safety spending to cover the remaining nine
+spending categories and officer-involved killings as primary
+outcomes rather than appendix notes.
 
 \newpage
 \bibliographystyle{apacite}

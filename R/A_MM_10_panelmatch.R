@@ -55,7 +55,7 @@ panel <- panel %>%
                        is.finite(cutoff))
   ) %>% ungroup()
 
-outcomes <- c("v2x_polyarchy", "v2x_libdem")
+outcomes <- c("v2x_polyarchy", "v2x_libdem", "leader_turnover")
 
 # PanelMatch's data.frame needs no NAs in the treatment column; treat NA
 # as 0 (not treated).

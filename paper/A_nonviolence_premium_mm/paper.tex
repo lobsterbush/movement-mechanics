@@ -53,6 +53,11 @@
   \newcommand{\MMCSRepHeadlineSE}{??}%
   \newcommand{\MMCSRepNonviolentN}{??}%
   \newcommand{\MMCSRepViolentN}{??}%
+  \newcommand{\MMCSContrastTurnover}{??}%
+  \newcommand{\MMCSContrastTurnoverSE}{??}%
+  \newcommand{\MMCSContrastTurnoverP}{??}%
+  \newcommand{\MMArchigosPctNonMiss}{??}%
+  \newcommand{\MMArchigosTurnoverN}{??}%
 }
 
 \title{The Nonviolence Premium: \\
@@ -84,30 +89,33 @@ Mobilization v5.1 catalogue \cite{clark_regan_2022} of
 countries, \MMPanelYearRange{}, aggregated to a
 \MMPanelNCountryYear-row country-year panel. We estimate the arm
 contrast $\mathrm{ATT}_{\text{nv}}-\mathrm{ATT}_{\text{v}}$ on V-Dem
-polyarchy and a six-outcome stack (three V-Dem democracy indices,
-Polity~5, and two World Bank fiscal indicators) with four estimators:
-Callaway--Sant'Anna \cite{callaway2021}, synthetic DiD
-\cite{arkhangelsky2021}, augmented synthetic control
-\cite{benmichael2021}, and PanelMatch \cite{imai2023}. The
-Callaway--Sant'Anna contrast on V-Dem polyarchy is
-$\MMCSContrastPolyarchy{}$ (SE~$\MMCSContrastSE{}$,
+polyarchy and a seven-outcome stack (three V-Dem democracy indices,
+Polity~5, two World Bank fiscal indicators, and Archigos executive
+turnover) with four estimators: Callaway--Sant'Anna
+\cite{callaway2021}, synthetic DiD \cite{arkhangelsky2021}, augmented
+synthetic control \cite{benmichael2021}, and PanelMatch
+\cite{imai2023}. The Callaway--Sant'Anna contrast on V-Dem polyarchy
+is $\MMCSContrastPolyarchy{}$ (SE~$\MMCSContrastSE{}$,
 $p=\MMCSContrastP{}$), in the backlash direction but statistically
 indistinguishable from zero; synthetic DiD returns an aggregate ATT of
 $\MMSynthdidATT{}$ (SE~$\MMSynthdidSE{}$), and PanelMatch returns
 $\MMPMPolyarchyATTLeadFour{}$ (SE~$\MMPMPolyarchySELeadFour{}$) at the
-four-year horizon. An independent-scale Chenoweth--Stephan replication
-finds only \MMCSRepViolentN{} violent-maximalist country-years against
-\MMCSRepNonviolentN{} nonviolent ones, with a post-treatment polyarchy
-gap of $\MMCSRepHeadlineGap{}$ (SE~$\MMCSRepHeadlineSE{}$).
-The cross-national leg therefore returns a clean null across four
-frontier estimators and an independent-scale check. It is the companion
-to our U.S. county-year study, where the same design on local
-public-safety spending likewise failed to reject the Intensity
-Equivalence null. The two-paper headline is simple:
-\emph{once the Nonviolence Premium is estimated as a fixed-effects
-arm contrast at the county or country scale---not as a between-campaign
-comparison of the Chenoweth--Stephan kind---it does not survive at
-either scale.}
+four-year horizon. On \emph{executive turnover} (Archigos 4.1), by
+contrast, the Callaway--Sant'Anna arm contrast is
+$\MMCSContrastTurnover{}$ (SE~$\MMCSContrastTurnoverSE{}$,
+$p=\MMCSContrastTurnoverP{}$): backlash-signed and marginally
+significant at the 5\% threshold, consistent with violent mobilisation
+producing more leadership change at the country-year scale than
+nonviolent mobilisation. An independent-scale Chenoweth--Stephan
+replication finds only \MMCSRepViolentN{} violent-maximalist
+country-years against \MMCSRepNonviolentN{} nonviolent ones, with a
+post-treatment polyarchy gap of $\MMCSRepHeadlineGap{}$
+(SE~$\MMCSRepHeadlineSE{}$). Our combined reading: the
+3.5\%-maximalist frame overstates the within-country
+nonviolence premium on \emph{electoral democracy}, where every robust
+95\% interval in our four-estimator stack covers zero, but a
+smaller-scale \emph{Violence Backlash} pattern is visible on
+executive turnover.
 \end{abstract}
 
 \section{Introduction}
@@ -156,8 +164,8 @@ synthetic DiD \cite{arkhangelsky2021}, augmented synthetic control
 Chenoweth and Stephan's 3.5\%-maximalist classification against the
 same polyarchy outcome.
 
-We consider three hypotheses, named to match the U.S.~county-year
-companion paper:
+We consider three hypotheses, named so the paper refers back to them
+substantively rather than by number:
 \begin{description}
   \item[Nonviolence Premium.] Conditional on participation intensity,
         nonviolent protest produces a larger increase in V-Dem
@@ -188,15 +196,14 @@ post-treatment polyarchy gap of $\MMCSRepHeadlineGap{}$
 (SE~$\MMCSRepHeadlineSE{}$), consistent with the
 Intensity-Equivalence null.
 
-The cross-national result, read alongside our U.S. county-year
-companion, tells a more cautious two-scale story than the movement
-literature currently provides. Once the Nonviolence Premium is
-estimated as a fixed-effects arm contrast at the county or country
-scale---rather than as a between-campaign comparison of the
-Chenoweth--Stephan kind---the premium shrinks to zero at both
-scales. The 3.5\% cliff may reflect selection of maximalist cases
-rather than a stable dose-response relationship on electoral
-democracy. We stress that \emph{within-unit} in our design refers only
+The combined reading is that the cross-national Nonviolence Premium
+on electoral democracy is, on this data and under this design, a
+null. Once nonviolence is estimated as a fixed-effects arm contrast
+at the country-year scale---rather than as a between-campaign
+comparison of the Chenoweth--Stephan kind---the premium shrinks to
+zero across every estimator. The 3.5\% cliff may reflect selection
+of maximalist cases rather than a stable dose-response relationship
+on polyarchy. We stress that \emph{within-unit} in our design refers only
 to within-country variation \emph{over time}: each arm's ATT is
 identified by comparing treated countries to never-treated countries
 with country and year fixed effects. The design does \emph{not}
@@ -288,11 +295,17 @@ split by nonviolent-share tercile.
 
 Outcomes used in the paper: the V-Dem electoral-democracy index
 (polyarchy), the liberal-democracy index, the participatory-democracy
-index, the Polity~5 combined regime score, and World Bank World
+index, the Polity~5 combined regime score, World Bank World
 Development Indicators (WDI) health and education spending as a
-share of GDP. Executive-turnover data from the Archigos and REIGN
-leader datasets are not yet wired into our pipeline and are deferred
-to a follow-up.
+share of GDP, and a country-year indicator for executive turnover
+built from the Archigos 4.1 leader-tenure dataset
+\cite{goemans2009archigos}. Archigos records leader-spell
+start and end dates for every independent country,
+\MMPanelYearRange{}; we aggregate to a binary
+\texttt{leader\_turnover} flag that is 1 in any country-year in which
+at least one leader's spell ended. The merged panel covers
+$\MMArchigosPctNonMiss$\% of country-years on this outcome and flags
+$\MMArchigosTurnoverN{}$ country-years as turnover events.
 
 \section{Design}
 \label{sec:design_mm}
@@ -352,12 +365,9 @@ true contrast SE.
 The Callaway--Sant'Anna treatment-assignment step identifies
 $\MMCSTreatedNV{}$ nonviolent-arm treated countries and
 $\MMCSTreatedV{}$ violent-arm treated countries, with a treated-set
-overlap of $\MMCSTreatedOverlap{}$. Unlike the U.S.~county-year case,
-where the violent arm was dominated by a single year (2020), the
-Mass Mobilization violent arm spreads across the full
-\MMPanelYearRange{} window; the design therefore does not carry the
-same single-year fiscal-shock confounder that affected the U.S.
-companion paper.
+overlap of $\MMCSTreatedOverlap{}$. The violent arm spreads across the
+full \MMPanelYearRange{} window with no single-year cohort dominating
+identification.
 
 \subsection{Headline estimate}
 The headline arm contrast on V-Dem polyarchy is
@@ -434,6 +444,29 @@ scatters tightly around zero.
   \label{fig:mm_multiverse}
 \end{figure}
 
+\subsection{Executive turnover}
+\label{sec:turnover_mm}
+The seven-outcome stack includes a binary indicator for executive
+turnover in the country-year, constructed from the Archigos\,4.1
+leader-tenure file \cite{goemans2009archigos}. Aggregating spell
+end-dates to the country-year, we flag
+$\MMArchigosTurnoverN{}$ country-years as turnover events.
+The Callaway--Sant'Anna arm contrast on this outcome is
+$\MMCSContrastTurnover{}$ (SE~$\MMCSContrastTurnoverSE{}$,
+$p=\MMCSContrastTurnoverP{}$). This is backlash-signed and marginally
+significant at the 5\% threshold: violent-arm country-years are
+associated with \emph{more} leadership change than nonviolent-arm
+country-years of comparable participation intensity. The finding is
+consistent with the mechanism in Enos, Kaufman and Sands
+\cite{enos2019riots}---violent mobilisation triggers the state-security
+repertoire, which can in turn produce leadership change through
+coup, resignation, or irregular exit---and is the clearest deviation
+from Intensity Equivalence in our outcome stack. We treat it as a
+first pass rather than a definitive finding: the outcome is a coarse
+binary, the estimator is CS-DiD only (the three robustness estimators
+are reported on polyarchy), and the 5\% p-value sits on the
+threshold.
+
 \subsection{Chenoweth--Stephan replication}
 We reclassify Mass Mobilization country-years as
 \emph{nonviolent maximalist} (any event year with a nonviolent protest
@@ -469,17 +502,25 @@ result is Intensity Equivalence: within-country, nonviolent and
 violent mobilisation move electoral democracy at statistically
 indistinguishable rates.
 
-Read alongside the U.S.~county-year companion paper,
-a sharper two-scale pattern emerges. In the U.S. local-government
-setting, the arm contrast on public-safety spending was
-sign-consistent with Violence Backlash but overwhelmed by a
-2020-dominated violent-arm cohort contaminated by American Rescue
-Plan transfers. In the cross-national setting, where no single-year
-fiscal shock dominates the panel, the contrast collapses toward zero
-across every estimator. The most parsimonious combined reading is
-Intensity Equivalence once the 2020 U.S. confounder is removed, with
-weak evidence for Violence Backlash confined to the contaminated
-sub-sample.
+The exception to the null-on-polyarchy reading is executive
+turnover. There, the arm contrast is
+$\MMCSContrastTurnover{}$ (SE~$\MMCSContrastTurnoverSE{}$,
+$p=\MMCSContrastTurnoverP{}$), backlash-signed and marginally
+significant: violent-arm country-years experience more leadership
+change than nonviolent-arm country-years at comparable participation
+intensity. Read in the McAdam \cite{mcadam1982political} and
+Enos, Kaufman and Sands \cite{enos2019riots} tradition, this is a
+specific-channel Violence Backlash: violent mobilisation triggers the
+state-security repertoire and, through it, forced leader exits---coups,
+resignations, irregular transitions---at a rate nonviolent mobilisation
+does not match. The effect is small in absolute magnitude (a
+probability of leader change shifted by about
+$\MMCSContrastTurnover{}$) and sits on the 5\% threshold, so we read
+it as a lead for follow-up work rather than as a settled finding. The
+polyarchy null and the turnover backlash are not mutually
+inconsistent: regime-quality measures aggregate over many slow-moving
+institutional features, while turnover is a binary event captured at
+annual resolution.
 
 The Chenoweth--Stephan 3.5\%-of-population claim does not fail in
 the sense of being reversed by our MM replication, but it narrows
@@ -493,28 +534,32 @@ single event; the maximalist sample is selected on the treated state
 rather than assembled by within-country variation.
 
 \section{Conclusion}
-We asked whether the nonviolence premium travels and whether the
-Chenoweth--Stephan 3.5\%-cliff holds up under a within-country
-treatment-effect design. Using Mass Mobilization v5.1 on V-Dem
-polyarchy and five other outcomes, and running four frontier
-estimators plus an independent-scale replication, the answer is:
-(i) there is no robust cross-national nonviolence premium on
-electoral democracy, (ii) the arm contrast is indistinguishable from
-zero at the 5\% level in every estimator, and (iii) violent
-maximalist country-years are empirically rare enough that a clean
-test of the 3.5\% cliff against them is underpowered on this
-dataset.
+We asked whether the nonviolence premium travels across countries
+and whether the Chenoweth--Stephan 3.5\%-cliff holds up under a
+within-country treatment-effect design. Using Mass Mobilization v5.1
+on V-Dem polyarchy plus a six-outcome complementary stack, and
+running four frontier estimators plus an independent-scale
+replication, the answer is four-fold: (i) there is no robust
+cross-national nonviolence premium on electoral democracy; (ii) the
+arm contrast on polyarchy is indistinguishable from zero at the 5\%
+level in every estimator; (iii) violent maximalist country-years are
+empirically rare enough ($\MMCSRepViolentN{}$ against
+$\MMCSRepNonviolentN{}$ nonviolent) that a clean cross-country test
+of the 3.5\% cliff against them is underpowered on this dataset; but
+(iv) on \emph{executive turnover}, the CS arm contrast is
+$\MMCSContrastTurnover{}$ (SE~$\MMCSContrastTurnoverSE{}$,
+$p=\MMCSContrastTurnoverP{}$), backlash-signed and marginally
+significant---violent mobilisation is associated with more leadership
+change than nonviolent mobilisation at comparable intensity.
 
-Follow-up work will (i) wire up the Archigos/REIGN turnover outcome
-once the Dataverse download is scripted, (ii) expand the
-specification curve from \MMMVNSpecs{} to a target of 480 cells to
-match the U.S. county-year companion's spec density, and (iii) run
-the two-scale meta-analysis formally rather than in the joint
-discussion here. None of that is likely to overturn the two-paper
-headline: \emph{once the Nonviolence Premium is estimated as a
-fixed-effects arm contrast at the county or country scale---not as a
-between-campaign comparison of the Chenoweth--Stephan kind---it does
-not survive at either scale.}
+Follow-up work will (i) widen the robustness stack for the turnover
+outcome beyond CS-DiD, (ii) separate regular from irregular exits
+(the Archigos \texttt{exit} typology), and (iii) expand the
+specification curve from \MMMVNSpecs{} toward a 480-cell
+(estimator\,$\times$\,outcome\,$\times$\,violence-measure\,$\times$\,cutoff\,$\times$\,window)
+target. The most likely headline change is a sharpening of the
+backlash-on-turnover finding rather than an overturning of the
+polyarchy null.
 
 \newpage
 \bibliographystyle{apacite}

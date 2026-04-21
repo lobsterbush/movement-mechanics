@@ -113,9 +113,16 @@ run_one <- function(cn, first_yr) {
                 reason = "estimate error"))
   }
   # Placebo SE: resample treated unit from donors.
-  se <- tryCatch(sqrt(synthdid::vcov.synthdid_estimate(est,
-                                                      method = "placebo")),
-                 error = function(e) NA_real_)
+  # (We must use the vcov() generic, not synthdid::vcov.synthdid_estimate,
+  # because the latter is an internal S3 method and not exported.)
+  placebo_v <- tryCatch(vcov(est, method = "placebo"),
+                        error = function(e) { message("    placebo vcov failed: ",
+                                                       e$message); NA_real_ })
+  se <- if (is.numeric(placebo_v) && is.finite(placebo_v) && placebo_v >= 0) {
+    sqrt(placebo_v)
+  } else {
+    NA_real_
+  }
   list(country = cn, first_year = first_yr,
        att = as.numeric(est), se = as.numeric(se),
        N0 = N0, T0 = T0, reason = "ok")

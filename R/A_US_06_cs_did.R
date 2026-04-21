@@ -130,6 +130,22 @@ overlap_ids <- intersect(
 message(sprintf("  treated-set overlap (both arms): %d counties",
                 length(overlap_ids)))
 
+# Size of the violent-arm 2020 cohort (counties whose first_year == 2020).
+# Exposed as a macro because the paper narrative leans on this number.
+v_treated_2020 <- if (length(diag_v$first_year_tab) &&
+                     "2020" %in% names(diag_v$first_year_tab)) {
+  as.integer(diag_v$first_year_tab[["2020"]])
+} else {
+  0L
+}
+v_treated_2020_frac <- if (diag_v$n_treated > 0) {
+  v_treated_2020 / diag_v$n_treated
+} else {
+  NA_real_
+}
+message(sprintf("  violent-arm 2020 cohort: %d of %d counties (%.3f)",
+                v_treated_2020, diag_v$n_treated, v_treated_2020_frac))
+
 results <- list()
 for (y in outcomes) {
   message("  Running CS-DiD for: ", y)
@@ -246,7 +262,12 @@ writeLines(
             sprintf("%.4f", diag_nv$violent_share_treated) else "NA"),
     macro("AUSCSViolentShareTreatedV",
           if (is.finite(diag_v$violent_share_treated))
-            sprintf("%.4f", diag_v$violent_share_treated) else "NA")),
+            sprintf("%.4f", diag_v$violent_share_treated) else "NA"),
+    # Violent-arm 2020 cohort (size and share of the violent treated set).
+    macro("AUSCSVTreatedTwentyTwenty", v_treated_2020),
+    macro("AUSCSVTreatedTwentyTwentyFrac",
+          if (is.finite(v_treated_2020_frac))
+            sprintf("%.3f", v_treated_2020_frac) else "NA")),
   here("output", "tables", "a_us_cs_macros.tex")
 )
 message("Wrote macros: output/tables/a_us_cs_macros.tex")

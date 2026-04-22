@@ -171,7 +171,7 @@
     <h1>The Nonviolence Premium</h1>
     <p class="subtitle">A two-paper series on whether nonviolent protest moves policy more than violent protest does</p>
     <p class="lede">
-      Two companion papers, by Charles Crabtree and John B. Holbein, ask the same question at two scales &mdash; U.S. counties (2017&ndash;2023) and country-years (1990&ndash;2020) &mdash; using the same estimand: a <em>between-arm</em> contrast Δ = ATT<sub>nv</sub> − ATT<sub>v</sub> that differences two separately-identified within-unit ATTs (each arm against never-treated controls, with unit and year fixed effects). The design does <em>not</em> exploit within-unit variation between the nonviolent and violent arms, because counties and countries rarely switch tactical character across the panel. The combined finding: once the Nonviolence Premium is estimated this way at the county or country scale, rather than as a between-campaign comparison of the kind Chenoweth and Stephan (2011) pioneered, it does not survive at either scale.
+      Two standalone papers, by Charles Crabtree and John B. Holbein, ask the same question at two scales &mdash; U.S. counties (2017&ndash;2023) and country-years (1990&ndash;2020) &mdash; using the same estimand: a <em>between-arm</em> contrast Δ = ATT<sub>nv</sub> − ATT<sub>v</sub> that differences two separately-identified within-unit ATTs (each arm against never-treated controls, with unit and year fixed effects). The design does <em>not</em> exploit within-unit variation between the nonviolent and violent arms, because counties and countries rarely switch tactical character across the panel. The combined picture: once the Nonviolence Premium is estimated this way, it is statistically indistinguishable from zero on local public-safety spending and on electoral democracy; on <em>executive turnover</em>, violent-arm country-years see a marginally significant excess of leader change (CS-DiD Δ = −0.173, p = 0.042).
     </p>
   </header>
 
@@ -194,7 +194,7 @@
       <p class="tag">Paper 2 · Cross-national</p>
       <h3>The Nonviolence Premium: Evidence from 166 Countries, 1990–2020</h3>
       <p class="blurb">
-        Mass Mobilization v5.1 protest events joined to V-Dem polyarchy, Polity V regime indicators, and World Bank WDI fiscal outcomes. Four difference-in-differences estimators &mdash; Callaway–Sant'Anna, synthetic DiD, augmented synthetic control, and PanelMatch &mdash; all return <strong>statistically zero</strong> contrasts. The Chenoweth–Stephan 3.5% cliff rests on only 4 violent-maximalist country-years against 30 nonviolent ones.
+        Mass Mobilization v5.1 protest events joined to V-Dem polyarchy, Polity V regime indicators, World Bank WDI fiscal outcomes, and Archigos 4.1 executive turnover. Four difference-in-differences estimators &mdash; Callaway–Sant'Anna, synthetic DiD, augmented synthetic control, and PanelMatch &mdash; all return <strong>statistically zero</strong> polyarchy contrasts. The exception is on executive turnover, where CS-DiD returns a marginally significant backlash-signed contrast of <strong>−0.173 (SE 0.085, p = 0.042)</strong>: violent-arm country-years see more leader change than nonviolent-arm country-years of comparable intensity. The Chenoweth–Stephan 3.5% cliff itself rests on only 4 violent-maximalist country-years against 30 nonviolent ones.
       </p>
       <div class="links">
         <a href="slides_a_mm.html">Slides (HTML)</a>
@@ -205,7 +205,7 @@
   </div>
 
   <div class="stack">
-    <p><strong>Two-paper headline.</strong> <em>Once the Nonviolence Premium is estimated as a fixed-effects arm contrast at the county or country scale &mdash; not as a between-campaign comparison of the Chenoweth–Stephan kind &mdash; it does not survive at either scale.</em> The Intensity-Equivalence null (no difference between nonviolent and violent arms) is the most parsimonious reading across both papers. Every headline number is reproducible end-to-end from <code>data/raw/</code> via the numbered scripts in <code>R/</code>.</p>
+    <p><strong>Combined takeaway across the two standalone papers.</strong> On <em>electoral democracy</em> (V-Dem polyarchy) and on <em>local public-safety spending</em>, the within-unit between-arm CS-DiD contrast does not survive at either scale once we recast the Nonviolence Premium as a fixed-effects arm contrast rather than a between-campaign comparison of the Chenoweth–Stephan kind. The exception is on <em>executive turnover</em>, where violent-arm country-years see a marginally significant backlash: more leader change than nonviolent-arm country-years of comparable participation intensity. Every headline number is reproducible end-to-end from <code>data/raw/</code> via the numbered scripts in <code>R/</code>.</p>
   </div>
 
   <h2>Authors</h2>

@@ -124,7 +124,7 @@
 
   <!-- 1. Title -->
   <section class="section">
-    <p class="label">Movement Mechanics — Paper A_MM</p>
+    <p class="label">Movement Mechanics · Nonviolence Premium (Cross-National)</p>
     <h1>The Nonviolence Premium</h1>
     <p class="subtitle">Cross-national evidence from 166 countries, 1990–2020</p>
     <p style="margin-top: 1.8em; font-size: 0.88em;">Charles Crabtree &amp; John B. Holbein</p>
@@ -161,7 +161,7 @@
   <!-- 4. Hypotheses -->
   <section>
     <p class="label">Three Competing Claims</p>
-    <h2>Same claims as the U.S.-county companion (A_US), at the country-year scale.</h2>
+    <h2>Each maps to a different sign on the between-arm contrast, at the country-year scale.</h2>
     <div class="cols">
       <div class="card">
         <h3>Nonviolence Premium</h3>
@@ -198,13 +198,13 @@
   <section>
     <p class="label">Why V-Dem Polyarchy</p>
     <h2>It measures the thing civil-resistance theory says nonviolence wins.</h2>
-    <p>Chenoweth and Stephan's success-outcome is explicitly regime change toward democracy. The Varieties of Democracy (V-Dem) project's polyarchy index (Coppedge et al., v14) operationalises Dahl's electoral-democracy dimensions on a 0&ndash;1 continuous scale, with annual country observations and near-complete coverage back to 1990. Polity&nbsp;5 gives a second regime-quality outcome on a different scale for robustness, and the World Bank's World Development Indicators (WDI) supply social-spending outcomes that play the same role here as Census-of-Governments public-safety spending plays in the U.S. county-year companion paper.</p>
+    <p>Chenoweth and Stephan's success-outcome is explicitly regime change toward democracy. The Varieties of Democracy (V-Dem) project's polyarchy index (Coppedge et al., v14) operationalises Dahl's electoral-democracy dimensions on a 0&ndash;1 continuous scale, with annual country observations and near-complete coverage back to 1990. Polity&nbsp;5 gives a second regime-quality outcome on a different scale for robustness; the World Bank's World Development Indicators (WDI) supply social-spending outcomes; and Archigos 4.1 (Goemans, Gleditsch &amp; Chiozza) supplies an executive-turnover indicator at annual resolution.</p>
   </section>
 
   <!-- 7. Data -->
   <section>
     <p class="label">Data</p>
-    <h2>Mass Mobilization v5.1 + V-Dem v14 + Polity&nbsp;5 + World Bank WDI, 1990&ndash;2020.</h2>
+    <h2>Mass Mobilization v5.1 + V-Dem v14 + Polity&nbsp;5 + WDI + Archigos 4.1, 1990&ndash;2020.</h2>
     <div class="cols">
       <div>
         <p class="stat"><span class="n">17K</span><span class="u">protest events</span></p>
@@ -213,7 +213,7 @@
         <p class="stat"><span class="n">5,146</span><span class="u">country-years · 166 countries</span></p>
       </div>
     </div>
-    <p style="text-align:center; font-size: 0.72em;">Mass Mobilization participant-size brackets are populated for 57.7% of events; the remaining 42.3% are kept as missing rather than imputed. V-Dem polyarchy is joined at 99.3% country-year coverage; Polity&nbsp;5 at 83.4%.</p>
+    <p style="text-align:center; font-size: 0.72em;">Mass Mobilization participant-size brackets are populated for 57.7% of events; the remaining 42.3% are kept as missing rather than imputed. V-Dem polyarchy is joined at 99.3% country-year coverage; Polity&nbsp;5 at 83.4%; Archigos covers every country-year (827 turnover events, 79 irregular).</p>
   </section>
 
   <!-- 8. Time series — corrected -->
@@ -289,7 +289,7 @@
       <tr><td>p</td><td class="num">0.527</td></tr>
       <tr><td>Treated countries (nv / v / overlap)</td><td class="num">67 / 62 / 29</td></tr>
     </table>
-    <p style="font-size: 0.7em; color: var(--text-muted);">No 2020-style single-year fiscal-shock confounder — the violent arm spreads across the full 1990–2020 window — which makes this cleaner than the A_US estimate.</p>
+    <p style="font-size: 0.7em; color: var(--text-muted);">The violent arm spreads across the full 1990–2020 window with no single-year cohort dominating identification.</p>
   </section>
 
   <!-- 14. Four-estimator robustness -->
@@ -345,30 +345,26 @@
     <p style="text-align:center; font-size: 0.72em; color: var(--text-muted);">Of 120 spec cells (3 violence measures × 4 cutoffs × 5 outcomes × 2 sample windows), 45 had a finite, non-outlier SE. Almost all cluster on zero with tight CIs; the right tail with large CIs corresponds to outcome × cutoff combos where one arm has fewer than five treated countries and the estimate is essentially unidentified.</p>
   </section>
 
-  <!-- 19. Joint discussion -->
-  <section>
-    <p class="label">Reading A_US and A_MM Together</p>
-    <h2>The premium does not survive at either scale.</h2>
-    <div class="cols">
-      <div class="card">
-        <h3>U.S. counties (A_US)</h3>
-        <p>Backlash-signed but insignificant contrast; identified by a 2020 cohort whose CoG fiscal data is contaminated by ARPA. Raw sign consistent with Violence Backlash; 95% CI covers zero.</p>
-      </div>
-      <div class="card">
-        <h3>Cross-national (A_MM)</h3>
-        <p>Clean null across four estimators. No single-year fiscal-shock confounder. The 3.5%-maximalist subsample has only 4 violent country-years to compare against 30 nonviolent ones.</p>
-      </div>
-    </div>
-    <div class="callout" style="margin-top: 0.7em;">
-      <p><strong>Combined reading.</strong> Once we remove the 2020 U.S. fiscal confounder, Intensity Equivalence is the null that survives. The Chenoweth–Stephan 3.5% cliff is not overturned, but it rests on a comparison that our within-country design cannot populate with enough violent maximalist cases to test cleanly.</p>
-    </div>
+  <!-- 19. Archigos: executive turnover (NEW) -->
+  <section class="dark">
+    <p class="label">Executive Turnover · Archigos 4.1</p>
+    <h2>The exception to the null-on-polyarchy reading: violent-arm country-years see more leader change.</h2>
+    <table style="color: #c8c8d2;">
+      <tr><th style="color:#a5a7e1;">Quantity</th><th class="num" style="color:#a5a7e1;">Value</th></tr>
+      <tr><td>ATT<sub>nv</sub> − ATT<sub>v</sub> on leader_turnover (0/1)</td><td class="num"><strong>−0.1734</strong></td></tr>
+      <tr><td>SE (Δ)</td><td class="num">0.0853</td></tr>
+      <tr><td>p</td><td class="num">0.0420</td></tr>
+      <tr><td>Archigos coverage</td><td class="num">100% of 5,146 country-years</td></tr>
+      <tr><td>Country-years with any turnover</td><td class="num">827 (irregular: 79)</td></tr>
+    </table>
+    <p style="margin-top: 0.8em; font-size: 0.7em; color: #a5a7e1;">Backlash-signed and marginally significant at the 5% threshold. Consistent with the Enos–Kaufman–Sands (2019) mechanism: violent mobilisation triggers the state-security repertoire and, through it, forced leader exits (coups, resignations, irregular transitions). Small in magnitude (probability of leader change shifted by about −0.17) and sitting on the threshold, so we treat it as a lead for follow-up rather than a settled finding.</p>
   </section>
 
   <!-- 20. Bottom line -->
   <section class="dark">
-    <p class="label">Bottom Line · Two-Paper Headline</p>
-    <h2>Once the Nonviolence Premium is estimated as a fixed-effects arm contrast on county or country-year panels — rather than as a between-campaign comparison à la Chenoweth and Stephan — it does not survive at either scale.</h2>
-    <p style="margin-top: 1.2em; color: #c8c8d2;">Four estimators agree at the country-year scale. The companion U.S. county-year paper (A_US) returns a backlash-signed-but-insignificant contrast that is contaminated by 2020 ARPA transfers.</p>
+    <p class="label">Bottom Line</p>
+    <h2>Polyarchy null, turnover backlash.</h2>
+    <p style="margin-top: 1.2em; color: #c8c8d2;">Once the Nonviolence Premium is estimated as a fixed-effects between-arm CS-DiD contrast on a country-year panel — rather than as a between-campaign comparison à la Chenoweth and Stephan — the within-country premium on electoral democracy shrinks to zero across every estimator. On executive turnover, however, the same design finds a marginally significant backlash: violent mobilisation is associated with more leadership change than nonviolent mobilisation at comparable participation intensity. Regime-quality measures aggregate over slow-moving institutional features; turnover is a binary event captured at annual resolution, so the two findings are not mutually inconsistent.</p>
   </section>
 
   <!-- 21. Thank you -->
@@ -377,7 +373,7 @@
     <h2 style="font-size: 1.4em; margin-top: 0.8em;">Charles Crabtree &amp; John B. Holbein</h2>
     <p>Crabtree: Senior Lecturer, School of Social Sciences, Monash University &middot; K-Club Professor, University College, Korea University<br>Holbein: Associate Professor, Frank Batten School of Leadership and Public Policy, University of Virginia</p>
     <p style="margin-top: 1.2em;"><a href="mailto:charles.crabtree@monash.edu">charles.crabtree@monash.edu</a> &middot; <a href="https://charlescrabtree.org">charlescrabtree.org</a></p>
-    <p style="margin-top: 1em; font-size: 0.7em;"><a href="paper/A_nonviolence_premium_mm/paper.pdf">Read the paper (PDF)</a> &middot; <a href="slides_a_us.html">A_US companion slides</a></p>
+    <p style="margin-top: 1em; font-size: 0.7em;"><a href="paper/A_nonviolence_premium_mm/paper.pdf">Read the paper (PDF)</a></p>
   </section>
 
 </div></div>
